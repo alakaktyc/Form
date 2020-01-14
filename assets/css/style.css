@@ -43,18 +43,6 @@ body {
     z-index: 2;
 }
 
-.close,
-.modal-thank__close {
-    position: absolute;
-    left: 95%;
-    text-decoration: none;
-    font-size: 20px;
-}
-.close:hover,
-.modal-thank__close:hover {
-    color: red;
-}
-
 .contact-form,
 .modal-thank {
     position: absolute;
@@ -64,12 +52,29 @@ body {
     transform: translate(-50%, -50%);
     visibility: hidden;
     width: calc(100% - 10px);
-    height: 90%;
+    height: auto;
     opacity: 0;
     filter: blur(0px);
     -webkit-filter: blur(0px);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
+.contact-form__close,
+.modal-thank__close {
+    position: absolute;
+    left: 95%;
+    text-decoration: none;
+    font-size: 20px;
+    color: #EF7B00;
+    transition: all 0.5s;
+
+}
+.contact-form__close:hover,
+.modal-thank__close:hover {
+    color: red;
+    transition: all 0.5s;
+}
+
 
 .contact-form__head,
 .modal-thank {
@@ -85,35 +90,45 @@ body {
     margin-bottom: 0;
 }
 
+.modal-thank__title{
+    padding-top: 20px;
+}
+
 .contact-form__head > .contact-form__text {
-    font-size: 1em;
+    font-size: 0.6em;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
 }
 
+.contact-form__client-info > .contact-form__text,
+.contact-form__client-action > .contact-form__text {
+    font-size: 0.75em;
+}
+
 .contact-form__head,
 .contact-form__client-info,
 .contact-form__client-action {
+    border: 0;
+}
+.contact-form__head,
+.contact-form__client-info {
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
-    border: 0;
 }
+
 
 .contact-form__text {
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
-
 }
 
 .contact-form__input,
 .contact-form__comment {
-    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
     font-size: 1em;
     height: 1.7em;
-    width: calc(100% - 40px);
     padding: 0 20px;
     margin-top: 7px;
     border-radius: 5px;
@@ -123,33 +138,36 @@ body {
 .contact-form__comment {
     resize: none;
     height: 3.2em;
-    padding-top: 20px;
 }
 
 .contact-form {
     background-color: #fff;
     border-radius: 10px;
 }
+
 .contact-form__client-action{
     padding-top: 0;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+
 .contact-form__client-action > .contact-form__text {
     flex-direction: row;
 }
 
-.contact-form__link{
+.contact-form__link {
     font-size: 0.75em;
     color: #000;
     padding-bottom: 1.05em;
+    transition: all 0.5s;
+    display: inline;
+    width: auto;
 }
 
-.contact-form__btn,
-.contact-form__comment::placeholder,
-.contact-form__input::placeholder{
-    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
+.contact-form__link:hover {
+    font-weight: bold;
+    transition: all 0.3s;
 }
 
 .contact-form__comment:focus,
@@ -167,10 +185,10 @@ body {
 
 .contact-form__btn,
 .modal-thank__btn,
-.call-btn{
-    margin: auto;
+.call-btn {
     height: 50px;
     width: calc(100% - 20px);
+    margin: auto auto 10px;
     cursor: pointer;
     outline: none;
     font-size: 20px;
@@ -184,36 +202,37 @@ body {
 }
 .contact-form__btn:hover,
 .modal-thank__btn:hover,
-.call-btn:hover{
+.call-btn:hover {
     background-color: #1d2262;
     color: #EF7B00;
     transition: all 0.5s;
 }
 
-.modal-thank{
+.modal-thank {
     background-color: #fff;
-    height: 50%;
     border-radius: 5px;
 }
-.show-form,
-.show-modal{
+.contact-form--visible,
+.modal-thank--visible {
     opacity: 1;
     visibility: visible;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.contact-form__check{
+.contact-form__check {
     display: none;
 }
-.contact-form__check:checked + span{
+
+.contact-form__check:checked + span,
+.contact-form__check + span {
     background-image: url("../img/cheked.svg");
-    width: 20px;
+    width: 18px;
     height: 18px;
+    padding-left: 18px;
+    transition: opacity 1s ease-in-out;
 }
 .contact-form__check + span{
     background-image: url("../img/check.svg");
-    width: 20px;
-    height: 18px;
 }
 
 
@@ -239,6 +258,9 @@ body {
     .contact-form__comment {
         height: 40px;
     }
+    .contact-form__comment {
+        padding-top: 20px;
+    }
     .contact-form__btn,
     .contact-form__comment::placeholder,
     .contact-form__input::placeholder{
@@ -254,12 +276,20 @@ body {
 
     .modal-thank{
         width: 390px;
-        height: 220px;
         background-color: #fff;
     }
     .call-btn{
         width: 300px;
-
+    }
+    .contact-form__client-info > .contact-form__text,
+    .contact-form__client-action > .contact-form__text{
+        font-size: 1em;
+    }
+    .contact-form__check:checked + span,
+    .contact-form__check + span{
+        width: 20px;
+        height: 18px;
+        padding-left: 0;
     }
 }
 
