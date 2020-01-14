@@ -1,0 +1,267 @@
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('../font/GothamPro.eot');
+    src: local('Gotham Pro'), local('GothamPro'),
+    url('../font/GothamPro.eot?#iefix') format('embedded-opentype'),
+    url('../font/GothamPro.woff') format('woff'),
+    url('../font/GothamPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, skyblue -50%, purple 150%);
+    position: relative;
+    z-index: 0;
+}
+
+
+.blur{
+    position: absolute;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0.8;
+    background-color: #ccc;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.call-btn{
+    position: relative;
+    top: 2%;
+    left: 2%;
+    z-index: 2;
+}
+
+.close,
+.modal-thank__close {
+    position: absolute;
+    left: 95%;
+    text-decoration: none;
+    font-size: 20px;
+}
+.close:hover,
+.modal-thank__close:hover {
+    color: red;
+}
+
+.contact-form,
+.modal-thank {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    width: calc(100% - 10px);
+    height: 90%;
+    opacity: 0;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.contact-form__head,
+.modal-thank {
+    text-align: center;
+}
+
+.contact-form__title,
+.modal-thank__title {
+    color: #EF7B00;
+    font-size: 1.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.contact-form__head > .contact-form__text {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+
+.contact-form__head,
+.contact-form__client-info,
+.contact-form__client-action {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    border: 0;
+}
+
+.contact-form__text {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
+}
+
+.contact-form__input,
+.contact-form__comment {
+    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
+    font-size: 1em;
+    height: 1.7em;
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    margin-top: 7px;
+    border-radius: 5px;
+    border: 1px solid rgba(109, 109, 109, 0.4);
+}
+
+.contact-form__comment {
+    resize: none;
+    height: 3.2em;
+    padding-top: 20px;
+}
+
+.contact-form {
+    background-color: #fff;
+    border-radius: 10px;
+}
+.contact-form__client-action{
+    padding-top: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.contact-form__client-action > .contact-form__text {
+    flex-direction: row;
+}
+
+.contact-form__link{
+    font-size: 0.75em;
+    color: #000;
+    padding-bottom: 1.05em;
+}
+
+.contact-form__btn,
+.contact-form__comment::placeholder,
+.contact-form__input::placeholder{
+    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
+}
+
+.contact-form__comment:focus,
+.contact-form__input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 19, 19, 0.54);
+    color: rgba(255, 19, 19, 0.54);
+}
+
+.contact-form__comment:focus::placeholder,
+.contact-form__input:focus::placeholder {
+    color: transparent;
+}
+
+.contact-form__btn,
+.modal-thank__btn,
+.call-btn{
+    margin: auto;
+    height: 50px;
+    width: calc(100% - 20px);
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    border: 1px solid #EF7B00;
+    color: #fff;
+    background-color: #EF7B00;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+.contact-form__btn:hover,
+.modal-thank__btn:hover,
+.call-btn:hover{
+    background-color: #1d2262;
+    color: #EF7B00;
+    transition: all 0.5s;
+}
+
+.modal-thank{
+    background-color: #fff;
+    height: 50%;
+    border-radius: 5px;
+}
+.show-form,
+.show-modal{
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.contact-form__check{
+    display: none;
+}
+.contact-form__check:checked + span{
+    background-image: url("../img/cheked.svg");
+    width: 20px;
+    height: 18px;
+}
+.contact-form__check + span{
+    background-image: url("../img/check.svg");
+    width: 20px;
+    height: 18px;
+}
+
+
+
+
+@media (min-width: 769px) {
+    .contact-form{
+        width: 390px;
+        height: 560px;
+    }
+    .contact-form__title,
+    .modal-thank__title{
+        font-size: 1.9em;
+    }
+    .contact-form__head > .contact-form__text,
+    .modal-thank__text {
+        font-size: 0.87em;
+    }
+    .contact-form__text {
+        font-size: 1em;
+    }
+    .contact-form__input,
+    .contact-form__comment {
+        height: 40px;
+    }
+    .contact-form__btn,
+    .contact-form__comment::placeholder,
+    .contact-form__input::placeholder{
+        font-size: 1em;
+    }
+    .contact-form__comment {
+        height: 100px;
+    }
+    .contact-form__btn {
+        height: 50px;
+        width: 330px;
+    }
+
+    .modal-thank{
+        width: 390px;
+        height: 220px;
+        background-color: #fff;
+    }
+    .call-btn{
+        width: 300px;
+
+    }
+}
+
+
+
