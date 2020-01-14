@@ -22,7 +22,6 @@ function closeModal() {
 }
 
 function windowOnClick(event) {
-    console.log(event);
     if (event.target === blur) {
         modal.classList.remove('show-form');
         thankModal.classList.remove('show-modal');
@@ -31,11 +30,15 @@ function windowOnClick(event) {
 }
 
 function reqCallBack(){
-    localStorage.name = document.getElementById('client-name').value;
-    document.querySelector('#modal-thank__name').innerHTML = ', ' + localStorage.name + '!';
-    modal.classList.remove('show-form');
-    thankModal.classList.toggle('show-modal');
-    windowOnClick(event);
+    if (document.getElementById('client-name').value === '' ) {
+        return document.getElementById('client-name').focus()
+    } else {
+        localStorage.name = document.getElementById('client-name').value;
+        document.querySelector('#modal-thank__name').innerHTML = ', ' + localStorage.name + '!';
+        modal.classList.remove('show-form');
+        thankModal.classList.toggle('show-modal');
+        windowOnClick(event);
+    }
 }
 
 

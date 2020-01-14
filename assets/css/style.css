@@ -49,10 +49,14 @@ body {
     left: 95%;
     text-decoration: none;
     font-size: 20px;
+    color: #EF7B00;
+    transition: all 0.5s;
+
 }
 .close:hover,
 .modal-thank__close:hover {
     color: red;
+    transition: all 0.5s;
 }
 
 .contact-form,
@@ -64,7 +68,7 @@ body {
     transform: translate(-50%, -50%);
     visibility: hidden;
     width: calc(100% - 10px);
-    height: 90%;
+    height: 70%;
     opacity: 0;
     filter: blur(0px);
     -webkit-filter: blur(0px);
@@ -86,10 +90,14 @@ body {
 }
 
 .contact-form__head > .contact-form__text {
-    font-size: 1em;
+    font-size: 0.6em;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
+}
+.contact-form__client-info > .contact-form__text,
+.contact-form__client-action > .contact-form__text{
+    font-size: 0.75em;
 }
 
 .contact-form__head,
@@ -209,11 +217,13 @@ body {
     background-image: url("../img/cheked.svg");
     width: 20px;
     height: 18px;
+    transition: opacity 1s ease-in-out;
 }
 .contact-form__check + span{
     background-image: url("../img/check.svg");
     width: 20px;
     height: 18px;
+    transition: opacity 1s ease-in-out;
 }
 
 
@@ -259,7 +269,10 @@ body {
     }
     .call-btn{
         width: 300px;
-
+    }
+    .contact-form__client-info > .contact-form__text,
+    .contact-form__client-action > .contact-form__text{
+        font-size: 1em;
     }
 }
 
