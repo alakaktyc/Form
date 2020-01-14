@@ -22,6 +22,7 @@ function closeModal() {
 }
 
 function windowOnClick(event) {
+    console.log(event);
     if (event.target === blur) {
         modal.classList.remove('show-form');
         thankModal.classList.remove('show-modal');
@@ -34,7 +35,7 @@ function reqCallBack(){
     document.querySelector('#modal-thank__name').innerHTML = ', ' + localStorage.name + '!';
     modal.classList.remove('show-form');
     thankModal.classList.toggle('show-modal');
-    windowOnClick();
+    windowOnClick(event);
 }
 
 
