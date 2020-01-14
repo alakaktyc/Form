@@ -37,10 +37,10 @@ body {
 }
 
 .call-btn{
-    position: relative;
+    position: absolute;
     top: 2%;
     left: 2%;
-    z-index: 2;
+    z-index: 1;
 }
 
 .contact-form,
@@ -65,7 +65,7 @@ body {
     left: 95%;
     text-decoration: none;
     font-size: 20px;
-    color: #EF7B00;
+    color: #6D6D6D;
     transition: all 0.5s;
 
 }
@@ -292,6 +292,8 @@ body {
         padding-left: 0;
     }
 }
+
+
 
 
 
