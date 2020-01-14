@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Gotham Pro';
     src: url('../font/GothamPro.eot');
@@ -12,19 +13,21 @@ body {
     font-family: 'Gotham Pro', 'OpenSans', sans-serif;
     padding: 0;
     margin: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 #header {
     height: 100vh;
     width: 100vw;
+    background: -webkit-gradient(linear, left top, right top, color-stop(-50%, skyblue), color-stop(150%, purple));
+    background: -o-linear-gradient(left, skyblue -50%, purple 150%);
     background: linear-gradient(to right, skyblue -50%, purple 150%);
     position: relative;
     z-index: 0;
 }
 
-
-.blur{
+.blur {
     position: absolute;
     z-index: 99;
     visibility: hidden;
@@ -36,11 +39,11 @@ body {
     height: 100vh;
 }
 
-.call-btn{
-    position: relative;
+.call-btn {
+    position: absolute;
     top: 2%;
     left: 2%;
-    z-index: 2;
+    z-index: 1;
 }
 
 .contact-form,
@@ -49,6 +52,8 @@ body {
     z-index: 99;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     visibility: hidden;
     width: calc(100% - 10px);
@@ -56,7 +61,11 @@ body {
     opacity: 0;
     filter: blur(0px);
     -webkit-filter: blur(0px);
+    -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
+    -o-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
 .contact-form__close,
@@ -65,16 +74,19 @@ body {
     left: 95%;
     text-decoration: none;
     font-size: 20px;
-    color: #EF7B00;
+    color: #6D6D6D;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
-
 }
+
 .contact-form__close:hover,
 .modal-thank__close:hover {
     color: red;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
-
 
 .contact-form__head,
 .modal-thank {
@@ -90,7 +102,7 @@ body {
     margin-bottom: 0;
 }
 
-.modal-thank__title{
+.modal-thank__title {
     padding-top: 20px;
 }
 
@@ -111,16 +123,27 @@ body {
 .contact-form__client-action {
     border: 0;
 }
+
 .contact-form__head,
 .contact-form__client-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding-bottom: 0;
 }
 
 
 .contact-form__text {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding-bottom: 10px;
 }
@@ -145,14 +168,21 @@ body {
     border-radius: 10px;
 }
 
-.contact-form__client-action{
+.contact-form__client-action {
     padding-top: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
 }
 
 .contact-form__client-action > .contact-form__text {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
 }
 
@@ -160,6 +190,8 @@ body {
     font-size: 0.75em;
     color: #000;
     padding-bottom: 1.05em;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
     display: inline;
     width: auto;
@@ -167,6 +199,8 @@ body {
 
 .contact-form__link:hover {
     font-weight: bold;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 
@@ -176,6 +210,26 @@ body {
     border-radius: 5px;
     border: 1px solid rgba(255, 19, 19, 0.54);
     color: rgba(255, 19, 19, 0.54);
+}
+
+.contact-form__comment:focus::-webkit-input-placeholder,
+.contact-form__input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.contact-form__comment:focus::-moz-placeholder,
+.contact-form__input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+.contact-form__comment:focus:-ms-input-placeholder,
+.contact-form__input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+.contact-form__comment:focus::-ms-input-placeholder,
+.contact-form__input:focus::-ms-input-placeholder {
+    color: transparent;
 }
 
 .contact-form__comment:focus::placeholder,
@@ -198,6 +252,8 @@ body {
     color: #fff;
     background-color: #EF7B00;
     font-weight: bold;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
 .contact-form__btn:hover,
@@ -205,6 +261,8 @@ body {
 .call-btn:hover {
     background-color: #1d2262;
     color: #EF7B00;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
 
@@ -212,11 +270,16 @@ body {
     background-color: #fff;
     border-radius: 5px;
 }
+
 .contact-form--visible,
 .modal-thank--visible {
     opacity: 1;
     visibility: visible;
+    -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
+    -o-transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
 .contact-form__check {
@@ -229,6 +292,8 @@ body {
     width: 18px;
     height: 18px;
     padding-left: 18px;
+    -webkit-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
 }
 .contact-form__check + span{
@@ -236,55 +301,84 @@ body {
 }
 
 
-
-
 @media (min-width: 769px) {
     .contact-form{
         width: 390px;
         height: 560px;
     }
+
     .contact-form__title,
     .modal-thank__title{
         font-size: 1.9em;
     }
+
     .contact-form__head > .contact-form__text,
     .modal-thank__text {
         font-size: 0.87em;
     }
+
     .contact-form__text {
         font-size: 1em;
     }
+
     .contact-form__input,
     .contact-form__comment {
         height: 40px;
     }
+
     .contact-form__comment {
         padding-top: 20px;
     }
+
+    .contact-form__comment::-webkit-input-placeholder,
+    .contact-form__input::-webkit-input-placeholder {
+        font-size: 1em;
+    }
+
+    .contact-form__comment::-moz-placeholder,
+    .contact-form__input::-moz-placeholder {
+        font-size: 1em;
+    }
+
+    .contact-form__comment:-ms-input-placeholder,
+    .contact-form__input:-ms-input-placeholder {
+        font-size: 1em;
+    }
+
+    .contact-form__comment::-ms-input-placeholder,
+    .contact-form__input::-ms-input-placeholder {
+        font-size: 1em;
+    }
+
     .contact-form__btn,
     .contact-form__comment::placeholder,
     .contact-form__input::placeholder{
         font-size: 1em;
     }
+
     .contact-form__comment {
         height: 100px;
     }
+
     .contact-form__btn {
         height: 50px;
         width: 330px;
     }
 
-    .modal-thank{
+    .modal-thank {
         width: 390px;
         background-color: #fff;
     }
-    .call-btn{
+
+    .call-btn {
         width: 300px;
     }
+
     .contact-form__client-info > .contact-form__text,
-    .contact-form__client-action > .contact-form__text{
+    .contact-form__client-action > .contact-form__text {
         font-size: 1em;
     }
+
     .contact-form__check:checked + span,
     .contact-form__check + span{
         width: 20px;
@@ -292,6 +386,8 @@ body {
         padding-left: 0;
     }
 }
+
+
 
 
 

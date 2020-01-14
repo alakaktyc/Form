@@ -10,7 +10,6 @@ const buttonOk = document.querySelector('.modal-thank__btn');
 
 const blur = document.querySelector('.blur');
 
-
 function toggleModal() {
     formModal.classList.toggle('contact-form--visible');
     blur.style.visibility = 'visible';
