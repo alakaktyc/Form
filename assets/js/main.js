@@ -1,30 +1,34 @@
 const trigger = document.querySelector('.call-btn');
 
-const modal = document.querySelector('.contact-form');
-const closeButton = document.querySelector('.close');
-const callButton = document.querySelector('.contact-form__btn');
+const formModal = document.querySelector('.contact-form');
+const buttonClose = document.querySelector('.contact-form__close');
+const buttonCall = document.querySelector('.contact-form__btn');
 
-const closeThankButton = document.querySelector('.modal-thank__close');
+const buttonCloseThank = document.querySelector('.modal-thank__close');
 const thankModal = document.querySelector('.modal-thank');
-const okButton = document.querySelector('.modal-thank__btn');
+const buttonOk = document.querySelector('.modal-thank__btn');
 
 const blur = document.querySelector('.blur');
 
 
 function toggleModal() {
-    modal.classList.toggle('show-form');
+    formModal.classList.toggle('contact-form--visible');
     blur.style.visibility = 'visible';
 }
+
+function removeModify() {
+    formModal.classList.remove('contact-form--visible');
+    thankModal.classList.remove('modal-thank--visible');
+}
+
 function closeModal() {
-    modal.classList.remove('show-form');
-    thankModal.classList.remove('show-modal');
+    removeModify();
     blur.style.visibility = 'hidden';
 }
 
 function windowOnClick(event) {
     if (event.target === blur) {
-        modal.classList.remove('show-form');
-        thankModal.classList.remove('show-modal');
+        removeModify();
         blur.style.visibility = 'hidden';
     }
 }
@@ -34,20 +38,20 @@ function reqCallBack(){
         return document.getElementById('client-name').focus()
     } else {
         localStorage.name = document.getElementById('client-name').value;
-        document.querySelector('#modal-thank__name').innerHTML = ', ' + localStorage.name + '!';
-        modal.classList.remove('show-form');
-        thankModal.classList.toggle('show-modal');
+        document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.name}!`;
+        formModal.classList.remove('contact-form--visible');
+        thankModal.classList.toggle('modal-thank--visible');
         windowOnClick(event);
     }
 }
 
 
 
-callButton.addEventListener('click', reqCallBack);
+buttonCall.addEventListener('click', reqCallBack);
 trigger.addEventListener('click', toggleModal);
-closeButton.addEventListener('click', closeModal);
-closeThankButton.addEventListener('click', closeModal);
-okButton.addEventListener('click', closeModal);
+buttonClose.addEventListener('click', closeModal);
+buttonCloseThank.addEventListener('click', closeModal);
+buttonOk.addEventListener('click', closeModal);
 window.addEventListener('click', windowOnClick);
 
 
