@@ -70,8 +70,13 @@ body {
 .modal-thank__close {
     position: absolute;
     left: 95%;
-    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    background: none;
     font-size: 20px;
+    cursor: pointer;
     color: #6D6D6D;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
