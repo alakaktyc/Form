@@ -45,7 +45,8 @@ function windowOnClick(event) {
     }
 }
 
-function reqCallBack(){
+function reqCallBack(event){
+    event.preventDefault();
     if (document.getElementById('client-name').value === '' ) {
         return document.getElementById('client-name').focus()
     } else {
