@@ -1,4 +1,18 @@
-const trigger = document.querySelector('.call-btn');
+const trigger = document.querySelectorAll('.call-btn');
+
+for (let i = 0; i < trigger.length; ++i) {
+
+    let item = trigger[i];
+
+    function toggleModal() {
+        document.querySelector('.contact-form__title').innerHTML = item.textContent;
+        formModal.classList.toggle('contact-form--visible');
+        blur.style.visibility = 'visible';
+    }
+
+    item.addEventListener('click', toggleModal);
+}
+
 
 const formModal = document.querySelector('.contact-form');
 const buttonClose = document.querySelector('.contact-form__close');
@@ -10,10 +24,9 @@ const buttonOk = document.querySelector('.modal-thank__btn');
 
 const blur = document.querySelector('.blur');
 
-function toggleModal() {
-    formModal.classList.toggle('contact-form--visible');
-    blur.style.visibility = 'visible';
-}
+
+
+
 
 function removeModify() {
     formModal.classList.remove('contact-form--visible');
@@ -47,7 +60,7 @@ function reqCallBack(){
 
 
 buttonCall.addEventListener('click', reqCallBack);
-trigger.addEventListener('click', toggleModal);
+
 buttonClose.addEventListener('click', closeModal);
 buttonCloseThank.addEventListener('click', closeModal);
 buttonOk.addEventListener('click', closeModal);

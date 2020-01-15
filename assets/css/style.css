@@ -40,9 +40,7 @@ body {
 }
 
 .call-btn {
-    position: absolute;
-    top: 2%;
-    left: 2%;
+    position: relative;
     z-index: 1;
 }
 
@@ -304,7 +302,6 @@ body {
 @media (min-width: 769px) {
     .contact-form{
         width: 390px;
-        height: 560px;
     }
 
     .contact-form__title,
@@ -371,7 +368,8 @@ body {
     }
 
     .call-btn {
-        width: 300px;
+        width: auto;
+        padding: 10px;
     }
 
     .contact-form__client-info > .contact-form__text,
