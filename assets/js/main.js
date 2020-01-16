@@ -38,18 +38,10 @@ function closeModal() {
 
 
 function windowOnClick(event) {
-    if (event.target === outer || event.keyCode === 27) {
+    if (event.target === outer || event.code === 'Escape') {
         closeModal();
     }
 }
-
-function windowKeyPress(event) {
-    if (event.code === 'Escape') {
-        closeModal();
-    }
-}
-
-
 
 
 function reqCallBack(event){
@@ -79,6 +71,6 @@ buttonCloseThank.addEventListener('click', closeModal);
 buttonOk.addEventListener('click', closeModal);
 
 window.addEventListener('click', windowOnClick);
-window.addEventListener('keydown', windowKeyPress);
+window.addEventListener('keydown', windowOnClick);
 
 
