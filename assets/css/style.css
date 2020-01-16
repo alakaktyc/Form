@@ -28,15 +28,19 @@ body {
 }
 
 .blur {
-    position: absolute;
+    /*position: absolute;
     z-index: 99;
     visibility: hidden;
     opacity: 0.8;
     background-color: #ccc;
     left: 0;
-    top: 0;
+    top: 0;*/
     width: 100vw;
     height: 100vh;
+}
+
+.blur--active {
+    filter: blur(5px);
 }
 
 .call-btn {
