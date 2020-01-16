@@ -6,8 +6,9 @@ for (let i = 0; i < trigger.length; ++i) {
 
     function toggleModal() {
         document.querySelector('.contact-form__title').innerHTML = item.textContent;
+        document.getElementById('client-name').value = '';
         formModal.classList.toggle('contact-form--visible');
-        blur.style.visibility = 'visible';
+        blur.classList.add('blur--active');
     }
 
     item.addEventListener('click', toggleModal);
@@ -22,28 +23,26 @@ const buttonCloseThank = document.querySelector('.modal-thank__close');
 const thankModal = document.querySelector('.modal-thank');
 const buttonOk = document.querySelector('.modal-thank__btn');
 
+
 const blur = document.querySelector('.blur');
+const outer = document.querySelector('#header');
 
 
 
-
-
-function removeModify() {
-    formModal.classList.remove('contact-form--visible');
-    thankModal.classList.remove('modal-thank--visible');
-}
 
 function closeModal() {
-    removeModify();
-    blur.style.visibility = 'hidden';
+    formModal.classList.remove('contact-form--visible');
+    thankModal.classList.remove('modal-thank--visible');
+    blur.classList.remove('blur--active');
 }
 
+
 function windowOnClick(event) {
-    if (event.target === blur) {
-        removeModify();
-        blur.style.visibility = 'hidden';
+    if (event.target === outer || event.code === 'Escape') {
+        closeModal();
     }
 }
+
 
 function reqCallBack(event){
     event.preventDefault();
@@ -54,6 +53,11 @@ function reqCallBack(event){
         document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.name}!`;
         formModal.classList.remove('contact-form--visible');
         thankModal.classList.toggle('modal-thank--visible');
+
+        setTimeout(function(){
+            closeModal();
+        }, 2000);
+
         windowOnClick(event);
     }
 }
@@ -65,7 +69,8 @@ buttonCall.addEventListener('click', reqCallBack);
 buttonClose.addEventListener('click', closeModal);
 buttonCloseThank.addEventListener('click', closeModal);
 buttonOk.addEventListener('click', closeModal);
-window.addEventListener('click', windowOnClick);
 
+window.addEventListener('click', windowOnClick);
+window.addEventListener('keydown', windowOnClick);
 
 

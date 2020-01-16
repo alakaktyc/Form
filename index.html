@@ -9,43 +9,46 @@
 </head>
 <body>
 
-<header id="header">
+<div class="blur">
 
-    <div class="blur"></div>
+    <header id="header">
 
-    <form class="contact-form">
-        <button class="contact-form__close">&times</button>
-        <fieldset class="contact-form__head">
-            <h2 class="contact-form__title">обратный звонок</h2>
-            <p class="contact-form__text">Оставьте ваши данные, и мы вам перезвоним</p>
-        </fieldset>
-        <fieldset class="contact-form__client-info">
-            <label class="contact-form__text">Ваше имя<input id="client-name" class="contact-form__input" type="text" name="name" placeholder="Введите имя"></label>
-            <label class="contact-form__text">Ваш телефон<input class="contact-form__input" type="tel" name="phone" value="+375" required></label>
-            <label class="contact-form__text">Комментарий<textarea class="contact-form__comment" name="comment" placeholder="Введиет текст"></textarea></label>
-        </fieldset>
-        <fieldset class="contact-form__client-action">
-            <label class="contact-form__text"><input class="contact-form__check" type="checkbox" name="agree" checked><span></span> Согласие на обработку персональных данных</label>
-            <a class="contact-form__link" href="#">Политика конфиденциальности</a>
-            <button class="contact-form__btn" >Заказать звонок</button>
-            <!--<input class="contact-form__btn" name="submit" value="Заказать звонок">-->
-        </fieldset>
-    </form>
+        <button class="call-btn">Заказать звонок</button>
+        <button class="call-btn">Обратный звонок</button>
+        <button class="call-btn">Оставить контакты</button>
+        <button class="call-btn">Получить консультацию</button>
 
-    <div class="modal-thank">
-        <button class="modal-thank__close">&times</button>
-        <h3 class="modal-thank__title">Спасибо<span id="modal-thank__name"></span></h3>
-        <p class="modal-thank__text">Мы скоро с вами свяжемся</p>
-        <button class="modal-thank__btn">отлично</button>
-    </div>
-
-    <button class="call-btn">Заказать звонок</button>
-    <button class="call-btn">Обратный звонок</button>
-    <button class="call-btn">Оставить контакты</button>
-    <button class="call-btn">Получить консультацию</button>
+    </header>
+    
+</div>
 
 
-</header>
+
+<form class="contact-form">
+    <button class="contact-form__close">&times</button>
+    <fieldset class="contact-form__head">
+        <h2 class="contact-form__title">обратный звонок</h2>
+        <p class="contact-form__text">Оставьте ваши данные, и мы вам перезвоним</p>
+    </fieldset>
+    <fieldset class="contact-form__client-info">
+        <label class="contact-form__text">Ваше имя<input id="client-name" class="contact-form__input" type="text" name="name" placeholder="Введите имя"></label>
+        <label class="contact-form__text">Ваш телефон<input class="contact-form__input" type="tel" name="phone" value="+375" required></label>
+        <label class="contact-form__text">Комментарий<textarea class="contact-form__comment" name="comment" placeholder="Введиет текст"></textarea></label>
+    </fieldset>
+    <fieldset class="contact-form__client-action">
+        <label class="contact-form__text"><input class="contact-form__check" type="checkbox" name="agree" checked><span></span> Согласие на обработку персональных данных</label>
+        <a class="contact-form__link" href="#">Политика конфиденциальности</a>
+        <button class="contact-form__btn" >Заказать звонок</button>
+        <!--<input class="contact-form__btn" name="submit" value="Заказать звонок">-->
+    </fieldset>
+</form>
+
+<div class="modal-thank">
+    <button class="modal-thank__close">&times</button>
+    <h3 class="modal-thank__title">Спасибо<span id="modal-thank__name"></span></h3>
+    <p class="modal-thank__text">Мы скоро с вами свяжемся</p>
+    <button class="modal-thank__btn">отлично</button>
+</div>
 
 <script src="assets/js/main.js"></script>
 
