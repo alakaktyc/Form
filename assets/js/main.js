@@ -1,3 +1,4 @@
+//CallBack
 const trigger = document.querySelectorAll('.call-btn');
 
 for (let i = 0; i < trigger.length; ++i) {
@@ -13,6 +14,7 @@ for (let i = 0; i < trigger.length; ++i) {
 
     item.addEventListener('click', toggleModal);
 }
+
 
 
 const formModal = document.querySelector('.contact-form');
@@ -31,8 +33,9 @@ const outer = document.querySelector('#header');
 
 
 function closeModal() {
-    formModal.classList.remove('contact-form--visible');
-    thankModal.classList.remove('modal-thank--visible');
+    formModal.classList.remove('contact-form--visible'); //Форма
+    thankModal.classList.remove('modal-thank--visible'); //Модалка сасибо
+    regModal.classList.remove('reg-form--visible'); //Регистрация
     blur.classList.remove('blur--active');
 }
 
@@ -72,5 +75,17 @@ buttonOk.addEventListener('click', closeModal);
 
 window.addEventListener('click', windowOnClick);
 window.addEventListener('keydown', windowOnClick);
+
+
+//Registration
+
+const buttonReg = document.querySelector('.reg-btn');
+const regModal = document.querySelector('.reg-form')
+function toggleReg() {
+    regModal.classList.toggle('reg-form--visible');
+    blur.classList.add('blur--active');
+}
+
+buttonReg.addEventListener('click', toggleReg);
 
 

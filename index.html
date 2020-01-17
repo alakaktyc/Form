@@ -17,30 +17,48 @@
         <button class="call-btn">Обратный звонок</button>
         <button class="call-btn">Оставить контакты</button>
         <button class="call-btn">Получить консультацию</button>
+        <button class="reg-btn">Регистрация</button>
 
     </header>
-    
+
 </div>
 
 
 
 <form class="contact-form">
     <button class="contact-form__close">&times</button>
+
     <fieldset class="contact-form__head">
         <h2 class="contact-form__title">обратный звонок</h2>
         <p class="contact-form__text">Оставьте ваши данные, и мы вам перезвоним</p>
     </fieldset>
+
     <fieldset class="contact-form__client-info">
-        <label class="contact-form__text">Ваше имя<input id="client-name" class="contact-form__input" type="text" name="name" placeholder="Введите имя"></label>
-        <label class="contact-form__text">Ваш телефон<input class="contact-form__input" type="tel" name="phone" value="+375" required></label>
-        <label class="contact-form__text">Комментарий<textarea class="contact-form__comment" name="comment" placeholder="Введиет текст"></textarea></label>
+        <label class="contact-form__text">
+            Ваше имя
+            <input id="client-name" class="contact-form__input" type="text" name="name" placeholder="Введите имя">
+        </label>
+        <label class="contact-form__text">
+            Ваш телефон
+            <input class="contact-form__input" type="tel" name="phone" value="+375" required>
+        </label>
+        <label class="contact-form__text">
+            Комментарий
+            <textarea class="contact-form__comment" name="comment" placeholder="Введиет текст"></textarea>
+        </label>
     </fieldset>
+
     <fieldset class="contact-form__client-action">
-        <label class="contact-form__text"><input class="contact-form__check" type="checkbox" name="agree" checked><span></span> Согласие на обработку персональных данных</label>
+        <label class="contact-form__text">
+            <input class="contact-form__check" type="checkbox" name="agree" checked>
+            <span></span>
+            Согласие на обработку персональных данных
+        </label>
         <a class="contact-form__link" href="#">Политика конфиденциальности</a>
         <button class="contact-form__btn" >Заказать звонок</button>
         <!--<input class="contact-form__btn" name="submit" value="Заказать звонок">-->
     </fieldset>
+
 </form>
 
 <div class="modal-thank">
@@ -49,6 +67,56 @@
     <p class="modal-thank__text">Мы скоро с вами свяжемся</p>
     <button class="modal-thank__btn">отлично</button>
 </div>
+
+
+
+<form class="reg-form">
+    <button class="reg-form__close">&times</button>
+
+    <!--<fieldset class="reg-form__head">
+        <h2 class="reg-form__title">Регистрация</h2>
+        <p class="reg-form__text">Введите логи и пароль</p>
+        <label class="reg-form__text">Логин<input id="" class="reg-form__input" type="text" name="login"></label>
+        <label class="reg-form__text">Пароль<input class="reg-form__input" type="password" name="password"></label>
+        <label class="reg-form__text">Повторите пароль<input class="reg-form__input" type="password" name="password"></label>
+        <button disabled>Кнопка</button>
+    </fieldset>
+
+        <fieldset class="reg-form__client-info">
+        <h2 class="reg-form__title">Регистрация</h2>
+        <p class="reg-form__text">Заполните информацию о себе</p>
+        <label class="reg-form__text">Имя<input class="reg-form__input" type="text" name="name"></label>
+        <label class="reg-form__text">Фамилия<input class="reg-form__input" type="text" name="surname"></label>
+        <label class="reg-form__text">Страна<input class="reg-form__input" type="text" name="country"></label>
+        <label class="reg-form__text">Город<input class="reg-form__input" type="text" name="city"></label>
+        <button disabled>Кнопка</button>
+    </fieldset>-->
+
+    <fieldset class="reg-form__client-other">
+        <h2 class="reg-form__title">Регистрация</h2>
+        <p class="reg-form__text">Заполните информацию о себе</p>
+        <label class="reg-form__text">Коротко о себе<textarea class="reg-form__about" name="about"></textarea></label>
+        <div class="check">
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Пляжный отдых</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Экскурсионный отдых</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Экзотические туры</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Круизы</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Горнолыжный отдых</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Лечебный</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Индивидуальный туризм</label>
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="tour"><span></span>Экстримальный отдых</label>
+        </div>
+        <div class="reg-form__inner">
+            <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="agree" checked><span></span> Согласие на обработку персональных данных</label>
+            <a class="reg-form__link" href="#">Политика конфиденциальности</a>
+            <button class="reg-form__btn" >Зарегистрироваться</button>
+        <!--<input class="reg-form__btn" name="submit" value="Зарегистрироваться">-->
+        </div>
+    </fieldset>
+
+</form>
+
+
 
 <script src="assets/js/main.js"></script>
 
