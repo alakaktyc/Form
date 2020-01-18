@@ -87,12 +87,13 @@ const infoReg = document.querySelector('.reg-form__client-info');
 const otherReg = document.querySelector('.reg-form__client-other');
 
 const buttonNext = document.querySelector('.reg-form__btn-next');
-
+const buttonUp = document.querySelector('.reg-form__btn-up');
 
 //Функция вызова главного окна
 function toggleReg() {
 
     headReg.classList.add('reg-form__head--active');
+
     regModal.classList.toggle('reg-form--visible');
     blur.classList.add('blur--active');
     document.querySelector('.reg-form__btn-next').disabled = true;
@@ -126,5 +127,11 @@ function nextReg(event) {
 
 buttonNext.addEventListener('click', nextReg);
 
+function upReg(event) {
+    event.preventDefault();
+    infoReg.classList.remove('reg-form__client-info--active');
+    otherReg.classList.add('reg-form__client-other--active');
+}
 
+buttonUp.addEventListener('click', upReg);
 

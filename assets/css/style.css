@@ -468,16 +468,14 @@ body {
 
 
 
-.reg-form__head{
+.reg-form__head,
+.reg-form__client-info,
+.reg-form__client-other{
     display: none;
 }
-.reg-form__head--active{
-    display: block;
-}
-
-.reg-form__client-info{
-    display: none;
-}
-.reg-form__client-info--active{
+.reg-form__head--active,
+.reg-form__client-info--active,
+.reg-form__client-other--active
+{
     display: block;
 }
