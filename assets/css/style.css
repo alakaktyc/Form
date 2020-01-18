@@ -44,7 +44,8 @@ body {
     filter: blur(5px);
 }
 
-.call-btn {
+.call-btn,
+.reg-btn{
     position: relative;
     z-index: 1;
 }
@@ -271,7 +272,8 @@ body {
 .contact-form__btn,
 .modal-thank__btn,
 .reg-form__btn,
-.call-btn {
+.call-btn,
+.reg-btn{
     height: 50px;
     width: calc(100% - 20px);
     margin: auto auto 10px;
@@ -291,6 +293,7 @@ body {
 .contact-form__btn:hover,
 .modal-thank__btn:hover,
 .call-btn:hover,
+.reg-btn:hover,
 .reg-form__btn:hover{
     background-color: #1d2262;
     color: #EF7B00;
@@ -420,7 +423,8 @@ body {
         background-color: #fff;
     }
 
-    .call-btn {
+    .call-btn,
+    .reg-btn{
         width: auto;
         padding: 10px;
     }

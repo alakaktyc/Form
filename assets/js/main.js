@@ -96,28 +96,25 @@ function toggleReg() {
 
     regModal.classList.toggle('reg-form--visible');
     blur.classList.add('blur--active');
-    document.querySelector('.reg-form__btn-next').disabled = true;
-
-    document.getElementById('reg-login').addEventListener('input', myFunction);
-    document.getElementById('reg-password').addEventListener('input', myFunction);
-    document.getElementById('reg-password-repeat').addEventListener('input', myFunction);
+    window.addEventListener('input', buttonStatus);
 
 }
+
+function buttonStatus() {
+    if (document.querySelector('#reg-login').value.length === 0 && document.querySelector('#reg-password').value.length === 0 && document.querySelector('#reg-password-repeat').length === 0){
+        return buttonNext.disabled = true;
+    } else {
+        buttonNext.disabled = false;
+    }
+}
+
+
+
+
 buttonReg.addEventListener('click', toggleReg);
 
-function myFunction() {
-
-    let reg = {
-        login: document.querySelector('#reg-login').value,
-        password: document.querySelector('#reg-password').value,
-        passRep: document.querySelector('#reg-password-repeat').value
-    };
-    let btnRegistr = document.querySelector('.reg-form__btn-next');
 
 
-    this.login !== '' && this.password !== '' && this.passRep !== '' ? btnRegistr.disabled = false : btnRegistr.disabled = true;
-
-}
 
 function nextReg(event) {
     event.preventDefault();
