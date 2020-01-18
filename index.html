@@ -73,13 +73,13 @@
 <form class="reg-form">
     <button class="reg-form__close">&times</button>
 
-    <fieldset class="reg-form__head">
+    <fieldset class="reg-form__head" name="frm">
         <h2 class="reg-form__title">Регистрация</h2>
         <p class="reg-form__text">Введите логи и пароль</p>
         <label class="reg-form__text">Логин<input id="reg-login" class="reg-form__input" type="text" name="login"></label>
         <label class="reg-form__text">Пароль<input id="reg-password" class="reg-form__input" type="password" name="password"></label>
-        <label class="reg-form__text">Повторите пароль<input id="reg-password-repeat" class="reg-form__input" type="password" name="password"></label>
-        <input class="reg-form__btn-next"  type="submit" name="submit" value="Далее">
+        <label class="reg-form__text">Повторите пароль<input id="reg-password-repeat" class="reg-form__input" type="password" name="rep-password"></label>
+        <input class="reg-form__btn-next"  type="submit" name="submit" value="Далее" disabled>
         <!--<button class="reg-form__btn-next">Кнопка</button>-->
     </fieldset>
 
@@ -93,7 +93,7 @@
         <input class="reg-form__btn-up"  type="submit" name="submit" value="Далее">
     </fieldset>
 
-    <!--<fieldset class="reg-form__client-other">
+    <fieldset class="reg-form__client-other">
         <h2 class="reg-form__title">Регистрация</h2>
         <p class="reg-form__text">Заполните информацию о себе</p>
         <label class="reg-form__text">Коротко о себе<textarea class="reg-form__about" name="about"></textarea></label>
@@ -110,10 +110,10 @@
         <div class="reg-form__inner">
             <label class="reg-form__text"><input class="reg-form__check" type="checkbox" name="agree" checked><span></span> Согласие на обработку персональных данных</label>
             <a class="reg-form__link" href="#">Политика конфиденциальности</a>
-            <button class="reg-form__btn" >Зарегистрироваться</button>
-        &lt;!&ndash;<input class="reg-form__btn" name="submit" value="Зарегистрироваться">&ndash;&gt;
+            <!--<button class="reg-form__btn" >Зарегистрироваться</button>-->
+            <input class="reg-form__btn" name="submit" type="submit" value="Зарегистрироваться">
         </div>
-    </fieldset>-->
+    </fieldset>
 
 </form>
 
