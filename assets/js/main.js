@@ -80,12 +80,51 @@ window.addEventListener('keydown', windowOnClick);
 //Registration
 
 const buttonReg = document.querySelector('.reg-btn');
-const regModal = document.querySelector('.reg-form')
+const regModal = document.querySelector('.reg-form');
+
+const headReg = document.querySelector('.reg-form__head');
+const infoReg = document.querySelector('.reg-form__client-info');
+const otherReg = document.querySelector('.reg-form__client-other');
+
+const buttonNext = document.querySelector('.reg-form__btn-next');
+
+
+//Функция вызова главного окна
 function toggleReg() {
+
+    headReg.classList.add('reg-form__head--active');
     regModal.classList.toggle('reg-form--visible');
     blur.classList.add('blur--active');
+    document.querySelector('.reg-form__btn-next').disabled = true;
+
+    document.getElementById('reg-login').addEventListener('input', myFunction);
+    document.getElementById('reg-password').addEventListener('input', myFunction);
+    document.getElementById('reg-password-repeat').addEventListener('input', myFunction);
+
+}
+buttonReg.addEventListener('click', toggleReg);
+
+function myFunction() {
+
+    let reg = {
+        login: document.querySelector('#reg-login').value,
+        password: document.querySelector('#reg-password').value,
+        passRep: document.querySelector('#reg-password-repeat').value
+    };
+    let btnRegistr = document.querySelector('.reg-form__btn-next');
+
+
+    this.login !== '' && this.password !== '' && this.passRep !== '' ? btnRegistr.disabled = false : btnRegistr.disabled = true;
+
 }
 
-buttonReg.addEventListener('click', toggleReg);
+function nextReg(event) {
+    event.preventDefault();
+    headReg.classList.remove('reg-form__head--active');
+    infoReg.classList.add('reg-form__client-info--active')
+}
+
+buttonNext.addEventListener('click', nextReg);
+
 
 

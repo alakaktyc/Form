@@ -465,3 +465,19 @@ body {
     justify-content: center;
     text-align: center;
 }
+
+
+
+.reg-form__head{
+    display: none;
+}
+.reg-form__head--active{
+    display: block;
+}
+
+.reg-form__client-info{
+    display: none;
+}
+.reg-form__client-info--active{
+    display: block;
+}
