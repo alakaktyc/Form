@@ -96,23 +96,23 @@ function toggleReg() {
 
     regModal.classList.toggle('reg-form--visible');
     blur.classList.add('blur--active');
-    window.addEventListener('input', buttonStatus);
+
+    const statusButton = function() {
+        if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
+            buttonNext.removeAttribute('disabled')
+        }
+    };
+
+    const loginField = document.querySelector('input[name="login"]');
+    const passwordField = document.querySelector('input[name="password"]');
+    const repPasswordField = document.querySelector('input[name="rep-password"]');
+    loginField.addEventListener('input', statusButton);
+    passwordField.addEventListener('input', statusButton);
+    repPasswordField.addEventListener('input', statusButton);
 
 }
-
-function buttonStatus() {
-    if (document.querySelector('#reg-login').value.length === 0 && document.querySelector('#reg-password').value.length === 0 && document.querySelector('#reg-password-repeat').length === 0){
-        return buttonNext.disabled = true;
-    } else {
-        buttonNext.disabled = false;
-    }
-}
-
-
-
 
 buttonReg.addEventListener('click', toggleReg);
-
 
 
 
