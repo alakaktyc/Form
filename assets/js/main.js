@@ -98,6 +98,14 @@ const buttonFinishReg = document.querySelector('.reg-form__btn');
 
 function toggleReg() {
 
+    //Clear input
+    const fieldsReg = document.querySelectorAll('.reg-form__input');
+    document.querySelector('.reg-form__about').value = '';
+    for (let i = 0; i < fieldsReg.length; ++i) {
+        fieldsReg[i].value = '';
+    }
+
+
     headReg.classList.add('reg-form__head--active');
     regModal.classList.toggle('reg-form--visible');
     infoReg.classList.remove('reg-form__client-info--active');
