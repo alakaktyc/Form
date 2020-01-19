@@ -273,7 +273,9 @@ body {
 .modal-thank__btn,
 .reg-form__btn,
 .call-btn,
-.reg-btn{
+.reg-btn,
+.reg-form__btn-next,
+.reg-form__btn-up{
     height: 50px;
     width: calc(100% - 20px);
     margin: auto auto 10px;
@@ -290,11 +292,22 @@ body {
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
+
+.reg-form__btn-next:disabled,
+.reg-form__btn-up:disabled{
+    border: 1px solid #6D6D6D;
+    color: #fff;
+    background-color: #CCC;
+}
+
+
 .contact-form__btn:hover,
 .modal-thank__btn:hover,
 .call-btn:hover,
 .reg-btn:hover,
-.reg-form__btn:hover{
+.reg-form__btn:hover,
+.reg-form__btn-next:enabled:hover,
+.reg-form__btn-up:enabled:hover{
     background-color: #1d2262;
     color: #EF7B00;
     -webkit-transition: all 0.5s;

@@ -1,18 +1,21 @@
 //CallBack
+
 const trigger = document.querySelectorAll('.call-btn');
 
 for (let i = 0; i < trigger.length; ++i) {
 
     let item = trigger[i];
 
-    function toggleModal() {
+    function toggleCallBack() {
         document.querySelector('.contact-form__title').innerHTML = item.textContent;
         document.getElementById('client-name').value = '';
+        document.getElementById('client-phone').value = '+375';
+        document.getElementById('client-comment').value = '';
         formModal.classList.toggle('contact-form--visible');
         blur.classList.add('blur--active');
     }
 
-    item.addEventListener('click', toggleModal);
+    item.addEventListener('click', toggleCallBack);
 }
 
 
