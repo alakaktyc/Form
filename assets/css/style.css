@@ -94,7 +94,7 @@ body {
 
 .contact-form__close:hover,
 .modal-thank__close:hover,
-.reg-form__close {
+.reg-form__close:hover {
     color: red;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;

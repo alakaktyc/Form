@@ -94,7 +94,6 @@ const buttonFinishReg = document.querySelector('.reg-form__btn');
 function toggleReg() {
 
     headReg.classList.add('reg-form__head--active');
-
     regModal.classList.toggle('reg-form--visible');
     infoReg.classList.remove('reg-form__client-info--active');
     otherReg.classList.remove('reg-form__client-other--active');
@@ -145,9 +144,8 @@ buttonUp.addEventListener('click', upReg);
 function finishReg(event) {
     event.preventDefault();
     document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.regName}!`;
-    otherReg.classList.toggle('reg-form__client-other--active');
+    regModal.classList.remove('reg-form--visible');
     thankModal.classList.toggle('modal-thank--visible');
-
 
     setTimeout(function(){
         closeModal();
