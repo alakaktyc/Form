@@ -61,7 +61,6 @@ function reqCallBack(event){
             closeModal();
         }, 2000);
 
-        windowOnClick(event);
     }
 }
 
@@ -89,19 +88,24 @@ const otherReg = document.querySelector('.reg-form__client-other');
 const buttonNext = document.querySelector('.reg-form__btn-next');
 const buttonUp = document.querySelector('.reg-form__btn-up');
 
-//Функция вызова главного окна
+const buttonFinishReg = document.querySelector('.reg-form__btn');
+
+
 function toggleReg() {
 
     headReg.classList.add('reg-form__head--active');
 
     regModal.classList.toggle('reg-form--visible');
+    infoReg.classList.remove('reg-form__client-info--active');
+    otherReg.classList.remove('reg-form__client-other--active');
+
     blur.classList.add('blur--active');
 
-    const statusButton = function() {
+    function statusButton () {
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
             buttonNext.removeAttribute('disabled')
         }
-    };
+    }
 
     const loginField = document.querySelector('input[name="login"]');
     const passwordField = document.querySelector('input[name="password"]');
@@ -126,9 +130,30 @@ buttonNext.addEventListener('click', nextReg);
 
 function upReg(event) {
     event.preventDefault();
-    infoReg.classList.remove('reg-form__client-info--active');
-    otherReg.classList.add('reg-form__client-other--active');
+    if (document.getElementById('reg-name').value === '' ) {
+        return document.getElementById('reg-name').focus()
+    } else {
+        localStorage.regName = document.getElementById('reg-name').value;
+        infoReg.classList.remove('reg-form__client-info--active');
+        otherReg.classList.add('reg-form__client-other--active');
+    }
 }
 
 buttonUp.addEventListener('click', upReg);
 
+
+function finishReg(event) {
+    event.preventDefault();
+    document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.regName}!`;
+    otherReg.classList.toggle('reg-form__client-other--active');
+    thankModal.classList.toggle('modal-thank--visible');
+
+
+    setTimeout(function(){
+        closeModal();
+    }, 2000);
+
+
+}
+
+buttonFinishReg.addEventListener('click', finishReg);
