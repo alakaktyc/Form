@@ -319,6 +319,7 @@ body {
 .modal-thank {
     background-color: #fff;
     border-radius: 5px;
+    text-align: center;
 }
 
 .contact-form--visible,
@@ -362,6 +363,41 @@ body {
     background-size: 70%;
 }
 
+.reg-form__head > .reg-form__text,
+.reg-form__client-info > .reg-form__text,
+.reg-form__client-other > .reg-form__text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+
+.check {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.reg-form__inner{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.reg-form__head,
+.reg-form__client-info,
+.reg-form__client-other {
+    display: none;
+}
+.reg-form__head--active,
+.reg-form__client-info--active,
+.reg-form__client-other--active {
+    display: block;
+}
 
 @media (min-width: 769px) {
     .contact-form,
@@ -480,40 +516,4 @@ body {
 }
 
 
-.reg-form__head > .reg-form__text,
-.reg-form__client-info > .reg-form__text,
-.reg-form__client-other > .reg-form__text{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-}
 
-
-.check{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.reg-form__inner{
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-
-
-.reg-form__head,
-.reg-form__client-info,
-.reg-form__client-other{
-    display: none;
-}
-.reg-form__head--active,
-.reg-form__client-info--active,
-.reg-form__client-other--active
-{
-    display: block;
-}
