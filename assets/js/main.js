@@ -1,18 +1,23 @@
 //CallBack
+
 const trigger = document.querySelectorAll('.call-btn');
 
 for (let i = 0; i < trigger.length; ++i) {
 
     let item = trigger[i];
 
-    function toggleModal() {
+    function toggleCallBack() {
         document.querySelector('.contact-form__title').innerHTML = item.textContent;
         document.getElementById('client-name').value = '';
+        document.getElementById('client-phone').value = '+375';
+        document.getElementById('client-comment').value = '';
+
         formModal.classList.toggle('contact-form--visible');
+        regModal.classList.remove('reg-form--visible');
         blur.classList.add('blur--active');
     }
 
-    item.addEventListener('click', toggleModal);
+    item.addEventListener('click', toggleCallBack);
 }
 
 
@@ -94,10 +99,10 @@ const buttonFinishReg = document.querySelector('.reg-form__btn');
 function toggleReg() {
 
     headReg.classList.add('reg-form__head--active');
-
     regModal.classList.toggle('reg-form--visible');
     infoReg.classList.remove('reg-form__client-info--active');
     otherReg.classList.remove('reg-form__client-other--active');
+    formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
 
@@ -145,9 +150,8 @@ buttonUp.addEventListener('click', upReg);
 function finishReg(event) {
     event.preventDefault();
     document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.regName}!`;
-    otherReg.classList.toggle('reg-form__client-other--active');
+    regModal.classList.remove('reg-form--visible');
     thankModal.classList.toggle('modal-thank--visible');
-
 
     setTimeout(function(){
         closeModal();
