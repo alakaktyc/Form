@@ -142,10 +142,13 @@ function nextReg(event) {
 buttonNext.addEventListener('click', nextReg);
 
 function upReg(event) {
+    const regName = document.getElementById('reg-name').value;
     event.preventDefault();
     if (document.getElementById('reg-name').value === '' ) {
-        return document.getElementById('reg-name').focus()
+        document.getElementById('reg-name').focus();
+        regName.addEventListener('input', statusButton);
     } else {
+        buttonUp.removeAttribute('disabled');
         localStorage.regName = document.getElementById('reg-name').value;
         infoReg.classList.remove('reg-form__client-info--active');
         otherReg.classList.add('reg-form__client-other--active');

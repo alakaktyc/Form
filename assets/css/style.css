@@ -101,15 +101,10 @@ body {
     transition: all 0.5s;
 }
 
-.contact-form__head,
-.modal-thank,
-.reg-form__head{
-    text-align: center;
-}
-
 .contact-form__title,
 .modal-thank__title,
 .reg-form__title {
+    text-align: center;
     color: #EF7B00;
     font-size: 1.5em;
     font-weight: 900;
@@ -119,6 +114,9 @@ body {
 
 .modal-thank__title {
     padding-top: 20px;
+}
+.modal-thank__text{
+    text-align: center;
 }
 
 .contact-form__head > .contact-form__text,
@@ -131,7 +129,10 @@ body {
 
 .contact-form__client-info > .contact-form__text,
 .contact-form__client-action > .contact-form__text,
-.reg-form__client-info > .reg-form__text {
+.reg-form__client-info > .reg-form__text,
+.reg-form__head > .reg-form__text,
+.reg-form__client-other > .reg-form__text,
+.reg-form__client-other > .check >.reg-form__text{
     font-size: 0.75em;
 }
 
@@ -278,10 +279,10 @@ body {
 .reg-form__btn-up{
     height: 50px;
     width: calc(100% - 20px);
-    margin: auto auto 10px;
+    margin: 10px auto 10px;
     cursor: pointer;
     outline: none;
-    font-size: 20px;
+    font-size: 1em;
     text-transform: uppercase;
     border-radius: 25px;
     border: 1px solid #EF7B00;
@@ -318,6 +319,7 @@ body {
 .modal-thank {
     background-color: #fff;
     border-radius: 5px;
+    text-align: center;
 }
 
 .contact-form--visible,
@@ -345,7 +347,7 @@ body {
     background: url("../img/cheked.svg") no-repeat;
     width: 18px;
     height: 18px;
-    padding-left: 20px;
+    padding-left: 19px;
     -webkit-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
@@ -353,8 +355,49 @@ body {
 .contact-form__check + span,
 .reg-form__check + span{
     background: url("../img/check.svg") no-repeat;
+
 }
 
+.reg-form__check:checked + span,
+.reg-form__check + span {
+    background-size: 70%;
+}
+
+.reg-form__head > .reg-form__text,
+.reg-form__client-info > .reg-form__text,
+.reg-form__client-other > .reg-form__text{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+
+
+.check {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.reg-form__inner{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.reg-form__head,
+.reg-form__client-info,
+.reg-form__client-other {
+    display: none;
+}
+.reg-form__head--active,
+.reg-form__client-info--active,
+.reg-form__client-other--active {
+    display: block;
+}
 
 @media (min-width: 769px) {
     .contact-form,
@@ -375,9 +418,9 @@ body {
         font-size: 0.87em;
     }
 
-    .contact-form__text,
+    .contact-form__client-action > .contact-form__text,
     .reg-form__text{
-        font-size: 1em;
+        font-size: 1.08em;
     }
 
     .contact-form__input,
@@ -427,7 +470,10 @@ body {
     }
 
     .contact-form__btn,
-    .reg-form__btn{
+    .reg-form__btn,
+    .reg-form__btn-next,
+    .reg-form__btn-up
+    {
         height: 50px;
         width: 330px;
     }
@@ -438,13 +484,16 @@ body {
     }
 
     .call-btn,
-    .reg-btn{
+    .reg-btn {
+        font-size: 20px;
         width: auto;
         padding: 10px;
     }
 
     .contact-form__client-info > .contact-form__text,
-    .reg-form__client-info > .reg-form__text {
+    .reg-form__client-info > .reg-form__text,
+    .reg-form__head > .reg-form__text,
+    .reg-form__client-other > .reg-form__text{
         font-size: 1em;
     }
 
@@ -452,46 +501,19 @@ body {
     .contact-form__check + span,
     .reg-form__check:checked + span,
     .reg-form__check + span{
-        width: 20px;
+        width: 19px;
         height: 18px;
     }
-}
+    .reg-form__check:checked + span,
+    .reg-form__check + span {
+        background-size: 100%;
+    }
+    .reg-form__client-other > .reg-form__text,
+    .reg-form__client-other > .check >.reg-form__text{
+        font-size: 1.1em;
+    }
 
-
-.reg-form__head > .reg-form__text,
-.reg-form__client-info > .reg-form__text,
-.reg-form__client-other > .reg-form__text{
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-}
-
-
-.check{
-    display: flex;
-    flex-direction: column;
-}
-
-
-.reg-form__inner{
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
 
 
-.reg-form__head,
-.reg-form__client-info,
-.reg-form__client-other{
-    display: none;
-}
-.reg-form__head--active,
-.reg-form__client-info--active,
-.reg-form__client-other--active
-{
-    display: block;
-}
