@@ -370,6 +370,7 @@ body {
 
     .contact-form__head > .contact-form__text,
     .reg-form__head > .reg-form__text,
+    .reg-form__client-other > .reg-form__text,
     .modal-thank__text {
         font-size: 0.87em;
     }

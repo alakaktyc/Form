@@ -11,7 +11,9 @@ for (let i = 0; i < trigger.length; ++i) {
         document.getElementById('client-name').value = '';
         document.getElementById('client-phone').value = '+375';
         document.getElementById('client-comment').value = '';
+
         formModal.classList.toggle('contact-form--visible');
+        regModal.classList.remove('reg-form--visible');
         blur.classList.add('blur--active');
     }
 
@@ -100,6 +102,7 @@ function toggleReg() {
     regModal.classList.toggle('reg-form--visible');
     infoReg.classList.remove('reg-form__client-info--active');
     otherReg.classList.remove('reg-form__client-other--active');
+    formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
 
