@@ -1,24 +1,26 @@
 //CallBack
 
-const trigger = document.querySelectorAll('.call-btn');
+function initFormCall() {
+    const trigger = document.querySelectorAll('.call-btn');
+    for (let i = 0; i < trigger.length; ++i) {
 
-for (let i = 0; i < trigger.length; ++i) {
+        let item = trigger[i];
 
-    let item = trigger[i];
+        function toggleCallBack() {
+            document.querySelector('.contact-form__title').innerHTML = item.textContent;
+            document.getElementById('client-name').value = '';
+            document.getElementById('client-phone').value = '+375';
+            document.getElementById('client-comment').value = '';
 
-    function toggleCallBack() {
-        document.querySelector('.contact-form__title').innerHTML = item.textContent;
-        document.getElementById('client-name').value = '';
-        document.getElementById('client-phone').value = '+375';
-        document.getElementById('client-comment').value = '';
+            formModal.classList.toggle('contact-form--visible');
+            regModal.classList.remove('reg-form--visible');
+            blur.classList.add('blur--active');
+        }
 
-        formModal.classList.toggle('contact-form--visible');
-        regModal.classList.remove('reg-form--visible');
-        blur.classList.add('blur--active');
+        item.addEventListener('click', toggleCallBack);
     }
-
-    item.addEventListener('click', toggleCallBack);
 }
+document.addEventListener('DOMContentLoaded', initFormCall);
 
 
 
@@ -30,12 +32,8 @@ const buttonCloseThank = document.querySelector('.modal-thank__close');
 const thankModal = document.querySelector('.modal-thank');
 const buttonOk = document.querySelector('.modal-thank__btn');
 
-
 const blur = document.querySelector('.blur');
 const outer = document.querySelector('#header');
-
-
-
 
 function closeModal() {
     formModal.classList.remove('contact-form--visible'); //Форма
@@ -43,7 +41,6 @@ function closeModal() {
     regModal.classList.remove('reg-form--visible'); //Регистрация
     blur.classList.remove('blur--active');
 }
-
 
 function windowOnClick(event) {
     if (event.target === outer || event.code === 'Escape') {
@@ -101,10 +98,10 @@ function toggleReg() {
     //Clear input
     const fieldsReg = document.querySelectorAll('.reg-form__input');
     document.querySelector('.reg-form__about').value = '';
+
     for (let i = 0; i < fieldsReg.length; ++i) {
         fieldsReg[i].value = '';
     }
-
 
     headReg.classList.add('reg-form__head--active');
     regModal.classList.toggle('reg-form--visible');
