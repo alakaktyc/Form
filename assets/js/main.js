@@ -48,12 +48,22 @@ function windowOnClick(event) {
     }
 }
 
+const clientName = document.getElementById('client-name');
+
+function replaceName (){
+    clientName.value = clientName.value.replace(/[^a-zA-Zа-яА-Я]/,'');
+}
+clientName.addEventListener('input', replaceName);
+
+
 
 function reqCallBack(event){
     event.preventDefault();
+
     if (document.getElementById('client-name').value === '' ) {
         return document.getElementById('client-name').focus()
     } else {
+
         localStorage.name = document.getElementById('client-name').value;
         document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.name}!`;
         formModal.classList.remove('contact-form--visible');
