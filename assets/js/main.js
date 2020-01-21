@@ -1,5 +1,5 @@
-//CallBack
 
+//Открытие формы с названием кнопки
 function initFormCall() {
     const trigger = document.querySelectorAll('.call-btn');
     for (let i = 0; i < trigger.length; ++i) {
@@ -35,6 +35,8 @@ const buttonOk = document.querySelector('.modal-thank__btn');
 const blur = document.querySelector('.blur');
 const outer = document.querySelector('#header');
 
+
+//Закрытие на кнопку Х
 function closeModal() {
     formModal.classList.remove('contact-form--visible'); //Форма
     thankModal.classList.remove('modal-thank--visible'); //Модалка сасибо
@@ -42,6 +44,7 @@ function closeModal() {
     blur.classList.remove('blur--active');
 }
 
+//Закрытие на внешнюю область и escape
 function windowOnClick(event) {
     if (event.target === outer || event.code === 'Escape') {
         closeModal();
@@ -50,13 +53,15 @@ function windowOnClick(event) {
 
 const clientName = document.getElementById('client-name');
 
+
+//Ввод только букв в поле имени
 function replaceName (){
     clientName.value = clientName.value.replace(/[^a-zA-Zа-яА-Я]/,'');
 }
 clientName.addEventListener('input', replaceName);
 
 
-
+//Вызов модалки после успешного заказа звонка
 function reqCallBack(event){
     event.preventDefault();
 
