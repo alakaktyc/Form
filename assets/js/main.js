@@ -125,6 +125,7 @@ function toggleReg() {
     formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
+    buttonNext.disabled = true;
 
     function statusButton () {
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
