@@ -500,6 +500,7 @@ body {
     .contact-form__check + span,
     .reg-form__check:checked + span,
     .reg-form__check + span{
+        margin-top: 4px;
         width: 19px;
         height: 18px;
     }
