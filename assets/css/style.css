@@ -57,16 +57,20 @@ body {
     z-index: 99;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    /*visibility: hidden;*/
-    display: none;
+    -webkit-transform: translate(-50%, -150%);
+    -ms-transform: translate(-50%, -150%);
+    transform: translate(-50%, -150%);
+
+    visibility: hidden;
+    /*display: none;*/
+
+
     width: calc(100% - 10px);
     height: auto;
     opacity: 0;
     filter: blur(0px);
     -webkit-filter: blur(0px);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.22),0 19px 60px rgba(0,0,0,0.3);
     -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
     -o-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
@@ -325,8 +329,13 @@ body {
 .modal-thank--visible,
 .reg-form--visible{
     opacity: 1;
-    /*visibility: visible;*/
-    display: block;
+
+    visibility: visible;
+
+    /*display: block;*/
+
+    transform: translate(-50%, -50%);
+
     -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
     -o-transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
