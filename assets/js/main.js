@@ -140,9 +140,9 @@ function toggleReg() {
     const loginField = document.querySelector('input[name="login"]');
     const passwordField = document.querySelector('input[name="password"]');
     const repPasswordField = document.querySelector('input[name="rep-password"]');
-    loginField.addEventListener('keyup', statusButton);
-    passwordField.addEventListener('keyup', statusButton);
-    repPasswordField.addEventListener('keyup', statusButton);
+    loginField.addEventListener('input', statusButton);
+    passwordField.addEventListener('input', statusButton);
+    repPasswordField.addEventListener('input', statusButton);
 
 }
 
