@@ -129,16 +129,20 @@ function toggleReg() {
 
     function statusButton () {
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
-            buttonNext.removeAttribute('disabled')
+            if (passwordField.value.length === repPasswordField.value.length && passwordField.value === repPasswordField.value) {
+                buttonNext.removeAttribute('disabled')
+            }else {
+                buttonNext.disabled = true;
+            }
         }
     }
 
     const loginField = document.querySelector('input[name="login"]');
     const passwordField = document.querySelector('input[name="password"]');
     const repPasswordField = document.querySelector('input[name="rep-password"]');
-    loginField.addEventListener('input', statusButton);
-    passwordField.addEventListener('input', statusButton);
-    repPasswordField.addEventListener('input', statusButton);
+    loginField.addEventListener('keyup', statusButton);
+    passwordField.addEventListener('keyup', statusButton);
+    repPasswordField.addEventListener('keyup', statusButton);
 
 }
 
