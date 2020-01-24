@@ -95,20 +95,19 @@ window.addEventListener('keydown', windowOnClick);
 
 //Registration
 
+
 const buttonReg = document.querySelector('.reg-btn');
 const regModal = document.querySelector('.reg-form');
 
-const headReg = document.querySelector('.reg-form__head');
-const infoReg = document.querySelector('.reg-form__client-info');
-const otherReg = document.querySelector('.reg-form__client-other');
-
-const buttonNext = document.querySelector('.reg-form__btn-next');
-const buttonUp = document.querySelector('.reg-form__btn-up');
+/*const buttonNext = document.querySelector('.reg-form__btn-next');
+const buttonUp = document.querySelector('.reg-form__btn-up');*/
 
 const buttonFinishReg = document.querySelector('.reg-form__btn');
 
 
 function toggleReg() {
+
+    regModal.classList.toggle('reg-form--visible');
 
     //Clear input
     const fieldsReg = document.querySelectorAll('.reg-form__input');
@@ -118,21 +117,26 @@ function toggleReg() {
         fieldsReg[i].value = '';
     }
 
-    headReg.classList.add('reg-form__head--active');
-    regModal.classList.toggle('reg-form--visible');
-    infoReg.classList.remove('reg-form__client-info--active');
-    otherReg.classList.remove('reg-form__client-other--active');
+    nextReg(fieldIndex = 1);
+    for (let i = 1; i < Object.keys(nextField).length; ++i){
+        nextField[0].classList.add('reg-form--active');
+        nextField[i].classList.remove('reg-form--active');
+        console.log(fieldIndex);
+    }
+
+
     formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
-    buttonNext.disabled = true;
+    buttons[0].disabled = true;
 
     function statusButton () {
+
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
             if (passwordField.value.length === repPasswordField.value.length && passwordField.value === repPasswordField.value) {
-                buttonNext.removeAttribute('disabled')
+                buttons[0].removeAttribute('disabled')
             }else {
-                buttonNext.disabled = true;
+                buttons[0].disabled = true;
             }
         }
     }
@@ -149,27 +153,40 @@ function toggleReg() {
 buttonReg.addEventListener('click', toggleReg);
 
 
+let fieldIndex = 1;
 
-function nextReg(event) {
-    event.preventDefault();
-    headReg.classList.remove('reg-form__head--active');
-    infoReg.classList.add('reg-form__client-info--active')
+const buttons = document.querySelectorAll('.next');
+const nextField = document.querySelectorAll('.reg-form fieldset');
+
+
+function nextReg(n) {
+    if (n > Object.keys(nextField).length) {
+        fieldIndex = 1
+    }
+    if (n < 1) {
+        fieldIndex = Object.keys(nextField).length
+    }
+    for (let i = 0; i < Object.keys(nextField).length; ++i){
+        nextField[i].classList.remove('reg-form--active');
+    }
+    nextField[fieldIndex - 1].classList.add('reg-form--active');
 }
 
-buttonNext.addEventListener('click', nextReg);
+function nextRegField() {
+    nextReg(fieldIndex += 1);
+}
+buttons[0].addEventListener('click', nextRegField);
 
-function upReg(event) {
-    event.preventDefault();
+function upReg() {
     if (document.getElementById('reg-name').value === '' ) {
         document.getElementById('reg-name').focus();
     } else {
         localStorage.regName = document.getElementById('reg-name').value;
-        infoReg.classList.remove('reg-form__client-info--active');
-        otherReg.classList.add('reg-form__client-other--active');
+        nextReg(fieldIndex += 1)
     }
 }
+buttons[1].addEventListener('click', upReg);
 
-buttonUp.addEventListener('click', upReg);
 
 
 function finishReg(event) {
