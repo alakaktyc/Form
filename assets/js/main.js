@@ -46,7 +46,6 @@ function closeModal() {
 
 //Закрытие на внешнюю область и escape
 function windowOnClick(event) {
-    event.preventDefault();
     if (event.target === outer || event.code === 'Escape') {
         closeModal();
     }
@@ -100,15 +99,13 @@ window.addEventListener('keydown', windowOnClick);
 const buttonReg = document.querySelector('.reg-btn');
 const regModal = document.querySelector('.reg-form');
 
-/*const buttonNext = document.querySelector('.reg-form__btn-next');
-const buttonUp = document.querySelector('.reg-form__btn-up');*/
+const buttonNext = document.querySelector('.reg-form__btn-next');
+const buttonUp = document.querySelector('.reg-form__btn-up');
 
 const buttonFinishReg = document.querySelector('.reg-form__btn');
 
 
 function toggleReg() {
-
-    regModal.classList.toggle('reg-form--visible');
 
     //Clear input
     const fieldsReg = document.querySelectorAll('.reg-form__input');
@@ -118,26 +115,27 @@ function toggleReg() {
         fieldsReg[i].value = '';
     }
 
+    regModal.classList.toggle('reg-form--visible');
+
     nextReg(fieldIndex = 1);
     for (let i = 1; i < Object.keys(nextField).length; ++i){
         nextField[0].classList.add('reg-form--active');
         nextField[i].classList.remove('reg-form--active');
-        console.log(fieldIndex);
     }
 
 
     formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
-    buttons[0].disabled = true;
+    buttonNext.disabled = true;
 
     function statusButton () {
 
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
             if (passwordField.value.length === repPasswordField.value.length && passwordField.value === repPasswordField.value) {
-                buttons[0].removeAttribute('disabled')
+                buttonNext.removeAttribute('disabled')
             }else {
-                buttons[0].disabled = true;
+                buttonNext.disabled = true;
             }
         }
     }
@@ -154,12 +152,13 @@ function toggleReg() {
 buttonReg.addEventListener('click', toggleReg);
 
 
-let fieldIndex = 1;
 
 const buttons = document.querySelectorAll('.next');
+console.log(buttons);
+
 const nextField = document.querySelectorAll('.reg-form fieldset');
 
-
+let fieldIndex = 1;
 function nextReg(n) {
     if (n > Object.keys(nextField).length) {
         fieldIndex = 1
@@ -169,16 +168,19 @@ function nextReg(n) {
     }
     for (let i = 0; i < Object.keys(nextField).length; ++i){
         nextField[i].classList.remove('reg-form--active');
+        console.log(nextField[i]);
     }
     nextField[fieldIndex - 1].classList.add('reg-form--active');
 }
 
+
 function nextRegField() {
-    nextReg(fieldIndex += 1);
+    nextReg(fieldIndex += 1)
 }
-buttons[0].addEventListener('click', nextRegField);
+buttonNext.addEventListener('click', nextRegField);
 
 function upReg() {
+
     if (document.getElementById('reg-name').value === '' ) {
         document.getElementById('reg-name').focus();
     } else {
@@ -186,7 +188,8 @@ function upReg() {
         nextReg(fieldIndex += 1)
     }
 }
-buttons[1].addEventListener('click', upReg);
+
+buttonUp.addEventListener('click', upReg);
 
 
 
