@@ -25,7 +25,7 @@
 
 
 
-<form class="contact-form" name="contact">
+<form class="contact-form" name="contact" method="post">
     <button class="contact-form__close">&times</button>
 
     <fieldset class="contact-form__head">
@@ -69,10 +69,10 @@
 
 
 
-<form class="reg-form">
+<form class="reg-form" name="registration" method="post">
     <button class="reg-form__close">&times</button>
 
-    <fieldset class="reg-form__head" name="frm">
+    <fieldset class="reg-form__head">
         <h2 class="reg-form__title">Регистрация</h2>
         <p class="reg-form__text">Введите логи и пароль</p>
         <label class="reg-form__text">
@@ -87,7 +87,7 @@
             Повторите пароль
             <input id="reg-password-repeat" class="reg-form__input" type="password" name="rep-password">
         </label>
-        <button class="reg-form__btn-next" type="submit" name="submit" disabled>Далее</button>
+        <button class="reg-form__btn-next next" type="button">Далее</button>
     </fieldset>
 
     <fieldset class="reg-form__client-info">
@@ -109,7 +109,7 @@
             Город
             <input class="reg-form__input" type="text" name="city">
         </label>
-        <button class="reg-form__btn-up" type="submit" name="submit">Далее</button>
+        <button class="reg-form__btn-up next" type="button">Далее</button>
     </fieldset>
 
     <fieldset class="reg-form__client-other">

@@ -396,9 +396,13 @@ body {
 }
 .reg-form__head--active,
 .reg-form__client-info--active,
-.reg-form__client-other--active {
+.reg-form__client---active {
     display: block;
 }
+.reg-form--active{
+    display: block;
+}
+
 
 @media (min-width: 769px) {
     .contact-form,
