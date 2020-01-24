@@ -72,9 +72,7 @@ body {
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
-.contact-form__close,
-.modal-thank__close,
-.reg-form__close{
+.btn-close{
     position: absolute;
     left: 95%;
     padding: 0;
@@ -90,9 +88,7 @@ body {
     transition: all 0.5s;
 }
 
-.contact-form__close:hover,
-.modal-thank__close:hover,
-.reg-form__close:hover {
+.btn-close:hover {
     color: red;
     transform: rotate(180deg);
     -webkit-transition: all 0.5s;

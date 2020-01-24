@@ -1,4 +1,3 @@
-
 //Открытие формы с названием кнопки
 function initFormCall() {
     const trigger = document.querySelectorAll('.call-btn');
@@ -19,16 +18,15 @@ function initFormCall() {
 
         item.addEventListener('click', toggleCallBack);
     }
+
 }
 document.addEventListener('DOMContentLoaded', initFormCall);
 
 
 
 const formModal = document.querySelector('.contact-form');
-const buttonClose = document.querySelector('.contact-form__close');
 const buttonCall = document.querySelector('.contact-form__btn');
 
-const buttonCloseThank = document.querySelector('.modal-thank__close');
 const thankModal = document.querySelector('.modal-thank');
 const buttonOk = document.querySelector('.modal-thank__btn');
 
@@ -37,11 +35,16 @@ const outer = document.querySelector('#header');
 
 
 //Закрытие на кнопку Х
-function closeModal() {
-    formModal.classList.remove('contact-form--visible'); //Форма
-    thankModal.classList.remove('modal-thank--visible'); //Модалка сасибо
-    regModal.classList.remove('reg-form--visible'); //Регистрация
-    blur.classList.remove('blur--active');
+const btnClose = document.querySelectorAll('.btn-close');
+for (let i = 0; i < btnClose.length; ++i) {
+    let closeItem = btnClose[i];
+    function closeModal() {
+        formModal.classList.remove('contact-form--visible'); //Форма
+        thankModal.classList.remove('modal-thank--visible'); //Модалка сасибо
+        regModal.classList.remove('reg-form--visible'); //Регистрация
+        blur.classList.remove('blur--active');
+    }
+    closeItem.addEventListener('click', closeModal)
 }
 
 //Закрытие на внешнюю область и escape
@@ -85,8 +88,6 @@ function reqCallBack(event){
 
 buttonCall.addEventListener('click', reqCallBack);
 
-buttonClose.addEventListener('click', closeModal);
-buttonCloseThank.addEventListener('click', closeModal);
 buttonOk.addEventListener('click', closeModal);
 
 window.addEventListener('click', windowOnClick);
