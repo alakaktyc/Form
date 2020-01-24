@@ -46,6 +46,7 @@ function closeModal() {
 
 //Закрытие на внешнюю область и escape
 function windowOnClick(event) {
+    event.preventDefault();
     if (event.target === outer || event.code === 'Escape') {
         closeModal();
     }
