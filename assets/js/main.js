@@ -1,10 +1,8 @@
 //Открытие формы с названием кнопки
 function initFormCall() {
-    const trigger = document.querySelectorAll('.call-btn');
+    const trigger = document.querySelectorAll('.btn--call');
     for (let i = 0; i < trigger.length; ++i) {
-
         let item = trigger[i];
-
         function toggleCallBack() {
             document.querySelector('.contact-form__title').innerHTML = item.textContent;
             document.getElementById('client-name').value = '';
@@ -15,10 +13,8 @@ function initFormCall() {
             regModal.classList.remove('reg-form--visible');
             blur.classList.add('blur--active');
         }
-
         item.addEventListener('click', toggleCallBack);
     }
-
 }
 document.addEventListener('DOMContentLoaded', initFormCall);
 
@@ -54,10 +50,9 @@ function windowOnClick(event) {
     }
 }
 
-const clientName = document.getElementById('client-name');
-
 
 //Ввод только букв в поле имени
+const clientName = document.getElementById('client-name');
 function replaceName (){
     clientName.value = clientName.value.replace(/[^a-zA-Zа-яА-Я]/,'');
 }
@@ -97,7 +92,7 @@ window.addEventListener('keydown', windowOnClick);
 //Registration
 
 
-const buttonReg = document.querySelector('.reg-btn');
+const buttonReg = document.querySelector('.btn--reg');
 const regModal = document.querySelector('.reg-form');
 
 const buttonNext = document.querySelector('.reg-form__btn-next');
@@ -208,3 +203,51 @@ function finishReg(event) {
 }
 
 buttonFinishReg.addEventListener('click', finishReg);
+
+
+
+
+
+//Маска
+window.addEventListener("DOMContentLoaded", function() {
+    [].forEach.call( document.querySelectorAll('#client-phone'), function(inp) {
+        let keyCode;
+        function mask(event) {
+            event.code && (keyCode = event.code);
+            let matrix = "+375 (__) ___ __ __",
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = this.value.replace(/\D/g, ""),
+                new_value = matrix.replace(/[_\d]/g, function(a) {
+                    return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+                });
+            i = new_value.indexOf("_");
+            if (i !== -1) {
+                i < 5 && (i = 3);
+                new_value = new_value.slice(0, i)
+            }
+            let reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                function(a) {
+                    return "\\d{1," + a.length + "}"
+                }).replace(/[+()]/g, "\\$&");
+            reg = new RegExp("^" + reg + "$");
+            if (!reg.test(this.value) || this.value.length < 5 || keyCode >= 'Digit0' && keyCode >= 'Digit9') this.value = new_value;
+            if (event.type === "blur" && this.value.length < 5)  this.value = ""
+        }
+
+        inp.addEventListener("input", mask, false);
+        inp.addEventListener("focus", mask, false);
+        inp.addEventListener("blur", mask, false);
+        inp.addEventListener("keydown", mask, false)
+
+    });
+
+});
+
+
+
+
+
+
+
+
