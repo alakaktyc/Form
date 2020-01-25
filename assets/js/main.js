@@ -209,6 +209,7 @@ buttonFinishReg.addEventListener('click', finishReg);
 
 
 //Маска
+
 window.addEventListener("DOMContentLoaded", function() {
     [].forEach.call( document.querySelectorAll('#client-phone'), function(inp) {
         let keyCode;
