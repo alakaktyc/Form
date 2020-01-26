@@ -1,7 +1,7 @@
 //после загрузки DOM-дерева страницы
 document.addEventListener("DOMContentLoaded",function() {
     //получить кнопку
-    const mybutton = document.querySelector('.contact-form__btn');
+    const mybutton = document.querySelector('.btn--request');
     //подписаться на событие click по кнопке и назначить обработчик, который будет выполнять действия, указанные в безымянной функции
     mybutton.addEventListener("click", function(){
         //1. Сбор данных из формы, необходимых для выполнения запроса на сервере

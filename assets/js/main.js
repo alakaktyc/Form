@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', initFormCall);
 
 
 const formModal = document.querySelector('.contact-form');
-const buttonCall = document.querySelector('.contact-form__btn');
+const buttonCall = document.querySelector('.btn--request');
 
 const thankModal = document.querySelector('.modal-thank');
 const buttonOk = document.querySelector('.btn--excellent');
@@ -95,10 +95,7 @@ window.addEventListener('keydown', windowOnClick);
 const buttonReg = document.querySelector('.btn--reg');
 const regModal = document.querySelector('.reg-form');
 
-const buttonNext = document.querySelector('.reg-form__btn-next');
-const buttonUp = document.querySelector('.reg-form__btn-up');
-
-const buttonFinishReg = document.querySelector('.reg-form__btn');
+const buttonFinishReg = document.querySelector('.btn--finish');
 
 
 function toggleReg() {
@@ -123,15 +120,15 @@ function toggleReg() {
     formModal.classList.remove('contact-form--visible');
 
     blur.classList.add('blur--active');
-    buttonNext.disabled = true;
+    buttons[0].disabled = true;
 
     function statusButton () {
 
         if (loginField.value.length > 3 && passwordField.value.length > 5 && repPasswordField.value.length > 5) {
             if (passwordField.value.length === repPasswordField.value.length && passwordField.value === repPasswordField.value) {
-                buttonNext.removeAttribute('disabled')
+                buttons[0].removeAttribute('disabled')
             }else {
-                buttonNext.disabled = true;
+                buttons[0].disabled = true;
             }
         }
     }
@@ -148,18 +145,15 @@ function toggleReg() {
 buttonReg.addEventListener('click', toggleReg);
 
 
-
-const buttons = document.querySelectorAll('.next');
-console.log(buttons);
-
+const buttons = document.querySelectorAll('.btn--next');
 const nextField = document.querySelectorAll('.reg-form fieldset');
 
 
 let fieldIndex = 1;
+
 function nextReg(n) {
     for (let i = 0; i < Object.keys(nextField).length; ++i){
         nextField[i].classList.remove('reg-form--active');
-        console.log(nextField[i]);
     }
     nextField[fieldIndex - 1].classList.add('reg-form--active');
 
@@ -170,10 +164,6 @@ function nextRegField() {
     nextReg(fieldIndex += 1)
 }
 buttons[0].addEventListener('click', nextRegField);
-
-
-
-
 
 
 function upReg() {
@@ -187,11 +177,6 @@ function upReg() {
 }
 
 buttons[1].addEventListener('click', upReg);
-
-
-
-
-
 
 
 

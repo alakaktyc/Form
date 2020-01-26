@@ -278,7 +278,7 @@ body {
     transition: all 0.5s;
 }
 
-.reg-form__btn-next:disabled{
+.btn--disabled:disabled{
     border: 1px solid #6D6D6D;
     color: #fff;
     background-color: #CCC;
@@ -429,8 +429,6 @@ body {
         font-size: 1em;
     }
 
-    .contact-form__btn,
-    .contact-form__btn,
     .contact-form__comment::placeholder,
     .contact-form__input::placeholder,
     .reg-form__about::placeholder,
