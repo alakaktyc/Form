@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Gotham Pro';
     src: url('../font/GothamPro.eot');
@@ -37,7 +36,6 @@ body {
     filter: blur(5px);
 }
 
-
 .contact-form,
 .modal-thank,
 .reg-form {
@@ -48,9 +46,7 @@ body {
     -webkit-transform: translate(-50%, -150%);
     -ms-transform: translate(-50%, -150%);
     transform: translate(-50%, -150%);
-
     visibility: hidden;
-
     width: calc(100% - 10px);
     height: auto;
     opacity: 0;
@@ -263,8 +259,7 @@ body {
     z-index: 1;
 }
 
-.btn
-{
+.btn {
     height: 50px;
     width: calc(100% - 20px);
     margin: 10px auto 10px;
@@ -289,7 +284,7 @@ body {
     background-color: #CCC;
 }
 
-.btn:hover {
+.btn:enabled:hover {
     background-color: #1d2262;
     color: #EF7B00;
     -webkit-transition: all 0.5s;
@@ -307,10 +302,7 @@ body {
 .modal-thank--visible,
 .reg-form--visible{
     opacity: 1;
-
     visibility: visible;
-    /*display: block;*/
-
     transform: translate(-50%, -50%);
     -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
@@ -336,6 +328,7 @@ body {
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
 }
+
 .contact-form__check + span,
 .reg-form__check + span{
     background: url("../img/check.svg") no-repeat;
@@ -355,12 +348,10 @@ body {
     text-align: justify;
 }
 
-
 .check {
     display: flex;
     flex-direction: column;
 }
-
 
 .reg-form__inner{
     display: flex;
@@ -371,17 +362,12 @@ body {
     text-align: center;
 }
 
-
 .reg-form__head,
 .reg-form__client-info,
 .reg-form__client-other {
     display: none;
 }
-.reg-form__head--active,
-.reg-form__client-info--active,
-.reg-form__client---active {
-    display: block;
-}
+
 .reg-form--active{
     display: block;
 }
@@ -456,7 +442,7 @@ body {
     .reg-form__about{
         height: 100px;
     }
-    
+
     .modal-thank {
         width: 390px;
         background-color: #fff;
