@@ -1,4 +1,13 @@
 //Открытие формы с названием кнопки
+const formModal = document.querySelector('.contact-form');
+const buttonCall = document.querySelector('.btn--request');
+
+const thankModal = document.querySelector('.modal-thank');
+const buttonOk = document.querySelector('.btn--excellent');
+
+const blur = document.querySelector('.blur');
+const outer = document.querySelector('#header');
+
 function initFormCall() {
     const trigger = document.querySelectorAll('.btn--call');
     for (let i = 0; i < trigger.length; ++i) {
@@ -18,19 +27,8 @@ function initFormCall() {
 }
 document.addEventListener('DOMContentLoaded', initFormCall);
 
-
-
-const formModal = document.querySelector('.contact-form');
-const buttonCall = document.querySelector('.btn--request');
-
-const thankModal = document.querySelector('.modal-thank');
-const buttonOk = document.querySelector('.btn--excellent');
-
-const blur = document.querySelector('.blur');
-const outer = document.querySelector('#header');
-
-
 //Закрытие на кнопку Х
+
 const btnClose = document.querySelectorAll('.btn-close');
 for (let i = 0; i < btnClose.length; ++i) {
     let closeItem = btnClose[i];
@@ -44,22 +42,23 @@ for (let i = 0; i < btnClose.length; ++i) {
 }
 
 //Закрытие на внешнюю область и escape
+
 function windowOnClick(event) {
     if (event.target === outer || event.code === 'Escape') {
         closeModal();
     }
 }
 
-
 //Ввод только букв в поле имени
+
 const clientName = document.getElementById('client-name');
 function replaceName (){
     clientName.value = clientName.value.replace(/[^a-zA-Zа-яА-Я]/,'');
 }
 clientName.addEventListener('input', replaceName);
 
-
 //Вызов модалки после успешного заказа звонка
+
 function reqCallBack(event){
     event.preventDefault();
 
@@ -79,24 +78,16 @@ function reqCallBack(event){
     }
 }
 
-
-
 buttonCall.addEventListener('click', reqCallBack);
-
 buttonOk.addEventListener('click', closeModal);
-
 window.addEventListener('click', windowOnClick);
 window.addEventListener('keydown', windowOnClick);
 
-
 //Registration
-
 
 const buttonReg = document.querySelector('.btn--reg');
 const regModal = document.querySelector('.reg-form');
-
 const buttonFinishReg = document.querySelector('.btn--finish');
-
 
 function toggleReg() {
 
@@ -116,9 +107,7 @@ function toggleReg() {
         nextField[i].classList.remove('reg-form--active');
     }
 
-
     formModal.classList.remove('contact-form--visible');
-
     blur.classList.add('blur--active');
     buttons[0].disabled = true;
 
@@ -144,10 +133,8 @@ function toggleReg() {
 
 buttonReg.addEventListener('click', toggleReg);
 
-
 const buttons = document.querySelectorAll('.btn--next');
 const nextField = document.querySelectorAll('.reg-form fieldset');
-
 
 let fieldIndex = 1;
 
@@ -158,7 +145,6 @@ function nextReg(n) {
     nextField[fieldIndex - 1].classList.add('reg-form--active');
 
 }
-
 
 function nextRegField() {
     nextReg(fieldIndex += 1)
@@ -235,11 +221,3 @@ window.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-
-
-
-
-
-
-
-
