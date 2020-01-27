@@ -1,23 +1,4 @@
 //Открытие формы с названием кнопки
-function initFormCall() {
-    const trigger = document.querySelectorAll('.btn--call');
-    for (let i = 0; i < trigger.length; ++i) {
-        let item = trigger[i];
-        function toggleCallBack() {
-            document.querySelector('.contact-form__title').innerHTML = item.textContent;
-            document.getElementById('client-name').value = '';
-            document.getElementById('client-phone').value = '+375';
-            document.getElementById('client-comment').value = '';
-
-            formModal.classList.toggle('contact-form--visible');
-            regModal.classList.remove('reg-form--visible');
-            blur.classList.add('blur--active');
-        }
-        item.addEventListener('click', toggleCallBack);
-    }
-}
-document.addEventListener('DOMContentLoaded', initFormCall);
-
 
 
 const formModal = document.querySelector('.contact-form');
@@ -29,15 +10,34 @@ const buttonOk = document.querySelector('.btn--excellent');
 const blur = document.querySelector('.blur');
 const outer = document.querySelector('#header');
 
+function initFormCall() {
+    const trigger = document.querySelectorAll('.btn--call');
+    for (let i = 0; i < trigger.length; ++i) {
+        let item = trigger[i];
+        function toggleCallBack() {
+            document.querySelector('.contact-form__title').innerHTML = item.textContent;
+            document.getElementById('client-name').value = '';
+            document.getElementById('client-phone').value = '+375';
+            document.getElementById('client-comment').value = '';
+
+            formModal.classList.toggle('visible');
+            regModal.classList.remove('visible');
+            blur.classList.add('blur--active');
+        }
+        item.addEventListener('click', toggleCallBack);
+    }
+}
+document.addEventListener('DOMContentLoaded', initFormCall);
 
 //Закрытие на кнопку Х
+
 const btnClose = document.querySelectorAll('.btn-close');
 for (let i = 0; i < btnClose.length; ++i) {
     let closeItem = btnClose[i];
     function closeModal() {
-        formModal.classList.remove('contact-form--visible'); //Форма
-        thankModal.classList.remove('modal-thank--visible'); //Модалка сасибо
-        regModal.classList.remove('reg-form--visible'); //Регистрация
+        formModal.classList.remove('visible'); //Форма
+        thankModal.classList.remove('visible'); //Модалка сасибо
+        regModal.classList.remove('visible'); //Регистрация
         blur.classList.remove('blur--active');
     }
     closeItem.addEventListener('click', closeModal)
@@ -50,8 +50,8 @@ function windowOnClick(event) {
     }
 }
 
-
 //Ввод только букв в поле имени
+
 const clientName = document.getElementById('client-name');
 function replaceName (){
     clientName.value = clientName.value.replace(/[^a-zA-Zа-яА-Я]/,'');
@@ -60,6 +60,7 @@ clientName.addEventListener('input', replaceName);
 
 
 //Вызов модалки после успешного заказа звонка
+
 function reqCallBack(event){
     event.preventDefault();
 
@@ -69,8 +70,8 @@ function reqCallBack(event){
 
         localStorage.name = document.getElementById('client-name').value;
         document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.name}!`;
-        formModal.classList.remove('contact-form--visible');
-        thankModal.classList.toggle('modal-thank--visible');
+        formModal.classList.remove('visible');
+        thankModal.classList.toggle('visible');
 
         setTimeout(function(){
             closeModal();
@@ -82,21 +83,16 @@ function reqCallBack(event){
 
 
 buttonCall.addEventListener('click', reqCallBack);
-
 buttonOk.addEventListener('click', closeModal);
-
 window.addEventListener('click', windowOnClick);
 window.addEventListener('keydown', windowOnClick);
 
 
 //Registration
 
-
 const buttonReg = document.querySelector('.btn--reg');
 const regModal = document.querySelector('.reg-form');
-
 const buttonFinishReg = document.querySelector('.btn--finish');
-
 
 function toggleReg() {
 
@@ -108,7 +104,7 @@ function toggleReg() {
         fieldsReg[i].value = '';
     }
 
-    regModal.classList.toggle('reg-form--visible');
+    regModal.classList.toggle('visible');
 
     nextReg(fieldIndex = 1);
     for (let i = 1; i < Object.keys(nextField).length; ++i){
@@ -117,8 +113,7 @@ function toggleReg() {
     }
 
 
-    formModal.classList.remove('contact-form--visible');
-
+    formModal.classList.remove('visible');
     blur.classList.add('blur--active');
     buttons[0].disabled = true;
 
@@ -144,11 +139,8 @@ function toggleReg() {
 
 buttonReg.addEventListener('click', toggleReg);
 
-
 const buttons = document.querySelectorAll('.btn--next');
 const nextField = document.querySelectorAll('.reg-form fieldset');
-
-
 let fieldIndex = 1;
 
 function nextReg(n) {
@@ -159,12 +151,11 @@ function nextReg(n) {
 
 }
 
-
 function nextRegField() {
     nextReg(fieldIndex += 1)
 }
-buttons[0].addEventListener('click', nextRegField);
 
+buttons[0].addEventListener('click', nextRegField);
 
 function upReg() {
 
@@ -178,26 +169,18 @@ function upReg() {
 
 buttons[1].addEventListener('click', upReg);
 
-
-
 function finishReg(event) {
     event.preventDefault();
     document.querySelector('#modal-thank__name').innerHTML = `,<br/>${localStorage.regName}!`;
-    regModal.classList.remove('reg-form--visible');
-    thankModal.classList.toggle('modal-thank--visible');
+    regModal.classList.remove('visible');
+    thankModal.classList.toggle('visible');
 
     setTimeout(function(){
         closeModal();
     }, 2000);
-
-
 }
 
 buttonFinishReg.addEventListener('click', finishReg);
-
-
-
-
 
 //Маска
 
@@ -235,11 +218,3 @@ window.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-
-
-
-
-
-
-
-
