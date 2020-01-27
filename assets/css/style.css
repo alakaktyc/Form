@@ -10,21 +10,10 @@
 }
 
 body {
-    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-#header {
-    height: 100vh;
-    width: 100vw;
-    background: -webkit-gradient(linear, left top, right top, color-stop(-50%, skyblue), color-stop(150%, purple));
-    background: -o-linear-gradient(left, skyblue -50%, purple 150%);
-    background: linear-gradient(to right, skyblue -50%, purple 150%);
-    position: relative;
-    z-index: 0;
+    font-family: 'Gotham Pro', 'OpenSans', sans-serif;
 }
 
 .blur {
@@ -36,78 +25,114 @@ body {
     filter: blur(5px);
 }
 
-.contact-form,
-.modal-thank,
-.reg-form {
-    position: absolute;
-    z-index: 99;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -150%);
-    -ms-transform: translate(-50%, -150%);
-    transform: translate(-50%, -150%);
-    visibility: hidden;
-    width: calc(100% - 10px);
-    height: auto;
-    opacity: 0;
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
-    box-shadow: 0 15px 20px rgba(0,0,0,0.22),0 19px 60px rgba(0,0,0,0.3);
-    -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
-    -o-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
-}
-
-.btn-close{
+.btn-close {
     position: absolute;
     left: 95%;
     padding: 0;
     margin: 0;
+    font-size: 20px;
+    background: none;
     border: none;
     outline: none;
-    background: none;
-    font-size: 20px;
     cursor: pointer;
     color: #6D6D6D;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
 
 .btn-close:hover {
     color: red;
     transform: rotate(180deg);
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
     transition: all 0.5s;
 }
+
+.btn--call,
+.btn--reg {
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    height: 50px;
+    width: calc(100% - 20px);
+    margin: 10px auto 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background-color: #EF7B00;
+    border: 1px solid #EF7B00;
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.5s;
+}
+
+.btn.disabled:disabled {
+    color: #fff;
+    background-color: #CCC;
+    border: 1px solid #6D6D6D;
+}
+
+.btn:enabled:hover {
+    color: #EF7B00;
+    background-color: #1d2262;
+    transition: all 0.5s;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, skyblue -50%, purple 150%);
+    z-index: 0;
+}
+
+
+
+.contact-form,
+.modal-thank,
+.reg-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    width: calc(100% - 10px);
+    height: auto;
+    visibility: hidden;
+    opacity: 0;
+    filter: blur(0px);
+    transform: translate(-50%, -150%);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.22),0 19px 60px rgba(0,0,0,0.3);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
 
 .contact-form__title,
 .modal-thank__title,
 .reg-form__title {
-    text-align: center;
-    color: #EF7B00;
+    margin-bottom: 0;
     font-size: 1.5em;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 0;
+    text-align: center;
+    color: #EF7B00;
 }
 
 .modal-thank__title {
     padding-top: 20px;
 }
-.modal-thank__text{
+.modal-thank__text {
     text-align: center;
 }
 
 .contact-form__head > .contact-form__text,
 .reg-form__head > .reg-form__text {
-    font-size: 0.6em;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
+    font-size: 0.6em;
 }
 
 .contact-form__client-info > .contact-form__text,
@@ -132,24 +157,14 @@ body {
 .contact-form__client-info,
 .reg-form__head,
 .reg-form__client-info{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     padding-bottom: 0;
 }
 
 
 .contact-form__text {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     padding-bottom: 10px;
 }
@@ -157,62 +172,51 @@ body {
 .contact-form__input,
 .contact-form__comment,
 .reg-form__input,
-.reg-form__about{
-    font-size: 1em;
+.reg-form__about {
     height: 1.7em;
     padding: 0 20px;
     margin-bottom: 7px;
+    font-size: 1em;
     border-radius: 5px;
     border: 1px solid rgba(109, 109, 109, 0.4);
 }
 
 .contact-form__comment,
-.reg-form__about{
-    resize: none;
+.reg-form__about {
     height: 3.2em;
+    resize: none;
 }
 
 .contact-form,
-.reg-form{
+.reg-form {
     background-color: #fff;
     border-radius: 10px;
 }
 
-.contact-form__client-action{
-    padding-top: 0;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+.contact-form__client-action {
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
+    padding-top: 0;
     text-align: center;
 }
 
-.contact-form__client-action > .contact-form__text{
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
+.contact-form__client-action > .contact-form__text {
     flex-direction: row;
 }
 
 .contact-form__link,
 .reg-form__link {
-    font-size: 0.75em;
-    color: #000;
-    padding-bottom: 1.05em;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
     display: inline;
     width: auto;
+    padding-bottom: 1.05em;
+    font-size: 0.75em;
+    color: #000;
+    transition: all 0.5s;
 }
 
 .contact-form__link:hover,
 .reg-form__link:hover {
     font-weight: bold;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 
@@ -220,95 +224,32 @@ body {
 .contact-form__input:focus,
 .reg-form__about:focus,
 .reg-form__input:focus {
-    outline: none;
+    color: rgba(255, 19, 19, 0.54);
     border-radius: 5px;
     border: 1px solid rgba(255, 19, 19, 0.54);
-    color: rgba(255, 19, 19, 0.54);
-}
-
-.contact-form__comment:focus::-webkit-input-placeholder,
-.contact-form__input:focus::-webkit-input-placeholder {
-    color: transparent;
-}
-
-.contact-form__comment:focus::-moz-placeholder,
-.contact-form__input:focus::-moz-placeholder {
-    color: transparent;
-}
-
-.contact-form__comment:focus:-ms-input-placeholder,
-.contact-form__input:focus:-ms-input-placeholder {
-    color: transparent;
-}
-
-.contact-form__comment:focus::-ms-input-placeholder,
-.contact-form__input:focus::-ms-input-placeholder {
-    color: transparent;
+    outline: none;
 }
 
 .contact-form__comment:focus::placeholder,
 .contact-form__input:focus::placeholder,
 .reg-form__about:focus::placeholder,
-.reg-form__input:focus::placeholder{
+.reg-form__input:focus::placeholder {
     color: transparent;
 }
 
-.btn--call,
-.btn--reg {
-    position: relative;
-    z-index: 1;
-}
-
-.btn {
-    height: 50px;
-    width: calc(100% - 20px);
-    margin: 10px auto 10px;
-    cursor: pointer;
-    outline: none;
-    font-size: 1em;
-    text-transform: uppercase;
-    border-radius: 25px;
-    border: 1px solid #EF7B00;
-    color: #fff;
-    background-color: #EF7B00;
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);
-    font-weight: bold;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
-.btn--disabled:disabled{
-    border: 1px solid #6D6D6D;
-    color: #fff;
-    background-color: #CCC;
-}
-
-.btn:enabled:hover {
-    background-color: #1d2262;
-    color: #EF7B00;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-}
-
 .modal-thank {
+    text-align: center;
     background-color: #fff;
     border-radius: 5px;
-    text-align: center;
 }
 
-.contact-form--visible,
-.modal-thank--visible,
-.reg-form--visible{
-    opacity: 1;
+.contact-form.visible,
+.reg-form.visible,
+.modal-thank.visible  {
     visibility: visible;
+    opacity: 1;
     transform: translate(-50%, -50%);
-    -webkit-transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, -webkit-transform 0.25s;
-    -o-transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
 }
 
 .contact-form__check,
@@ -319,18 +260,16 @@ body {
 .contact-form__check:checked + span,
 .contact-form__check + span,
 .reg-form__check:checked + span,
-.reg-form__check + span{
-    background: url("../img/cheked.svg") no-repeat;
+.reg-form__check + span {
     width: 18px;
     height: 18px;
     padding-left: 19px;
-    -webkit-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
+    background: url("../img/cheked.svg") no-repeat;
     transition: opacity 1s ease-in-out;
 }
 
 .contact-form__check + span,
-.reg-form__check + span{
+.reg-form__check + span {
     background: url("../img/check.svg") no-repeat;
 
 }
@@ -342,7 +281,7 @@ body {
 
 .reg-form__head > .reg-form__text,
 .reg-form__client-info > .reg-form__text,
-.reg-form__client-other > .reg-form__text{
+.reg-form__client-other > .reg-form__text {
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -353,12 +292,12 @@ body {
     flex-direction: column;
 }
 
-.reg-form__inner{
+.reg-form__inner {
     display: flex;
     flex-direction: column;
-    padding-top: 15px;
     align-items: center;
     justify-content: center;
+    padding-top: 15px;
     text-align: center;
 }
 
@@ -393,14 +332,14 @@ body {
     }
 
     .contact-form__client-action > .contact-form__text,
-    .reg-form__text{
+    .reg-form__text {
         font-size: 1.08em;
     }
 
     .contact-form__input,
     .contact-form__comment,
     .reg-form__input,
-    .reg-form__about{
+    .reg-form__about {
         height: 40px;
     }
 
@@ -409,35 +348,15 @@ body {
         padding-top: 20px;
     }
 
-    .contact-form__comment::-webkit-input-placeholder,
-    .contact-form__input::-webkit-input-placeholder {
-        font-size: 1em;
-    }
-
-    .contact-form__comment::-moz-placeholder,
-    .contact-form__input::-moz-placeholder {
-        font-size: 1em;
-    }
-
-    .contact-form__comment:-ms-input-placeholder,
-    .contact-form__input:-ms-input-placeholder {
-        font-size: 1em;
-    }
-
-    .contact-form__comment::-ms-input-placeholder,
-    .contact-form__input::-ms-input-placeholder {
-        font-size: 1em;
-    }
-
     .contact-form__comment::placeholder,
     .contact-form__input::placeholder,
     .reg-form__about::placeholder,
-    .reg-form__input::placeholder{
+    .reg-form__input::placeholder {
         font-size: 1em;
     }
 
     .contact-form__comment,
-    .reg-form__about{
+    .reg-form__about {
         height: 100px;
     }
 
@@ -448,25 +367,25 @@ body {
 
     .btn--call,
     .btn--reg {
-        font-size: 20px;
         width: auto;
         padding: 10px;
+        font-size: 20px;
     }
 
     .contact-form__client-info > .contact-form__text,
     .reg-form__client-info > .reg-form__text,
     .reg-form__head > .reg-form__text,
-    .reg-form__client-other > .reg-form__text{
+    .reg-form__client-other > .reg-form__text {
         font-size: 1em;
     }
 
     .contact-form__check:checked + span,
     .contact-form__check + span,
     .reg-form__check:checked + span,
-    .reg-form__check + span{
-        margin-top: 4px;
+    .reg-form__check + span {
         width: 19px;
         height: 18px;
+        margin-top: 4px;
     }
     .reg-form__check:checked + span,
     .reg-form__check + span {
@@ -478,6 +397,3 @@ body {
     }
 
 }
-
-
-
